@@ -1,0 +1,4 @@
+<h1>Choose a Set to Claim</h1>
+<%= form_tag :action=>"user_claim" %>
+<%= select("pupil_set", "id",@sets,{ :include_blank => true }, {:onchange=>"submit()"}) %>
+</form>

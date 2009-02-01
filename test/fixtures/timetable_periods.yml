@@ -1,0 +1,108 @@
+first: 
+  id: 1
+  timetable_slot_id: 3
+  timetable_day_id: 1
+second: 
+  id: 2
+  timetable_slot_id: 4
+  timetable_day_id: 1
+third: 
+  id: 3
+  timetable_slot_id: 5
+  timetable_day_id: 1
+forth: 
+  id: 4
+  timetable_slot_id: 6
+  timetable_day_id: 1
+fifth: 
+  id: 5
+  timetable_slot_id: 7
+  timetable_day_id: 1
+sixth: 
+  id: 6
+  timetable_slot_id: 8
+  timetable_day_id: 1
+seventh: 
+  id: 7
+  timetable_slot_id: 3
+  timetable_day_id: 2
+eighth: 
+  id: 8
+  timetable_slot_id: 4
+  timetable_day_id: 2
+ninth: 
+  id: 9
+  timetable_slot_id: 5
+  timetable_day_id: 2
+tenth: 
+  id: 10
+  timetable_slot_id: 6
+  timetable_day_id: 2
+elth: 
+  id: 11
+  timetable_slot_id: 7
+  timetable_day_id: 2
+twth: 
+  id: 12
+  timetable_slot_id: 8
+  timetable_day_id: 2
+thth: 
+  id: 13
+  timetable_slot_id: 3
+  timetable_day_id: 3
+foth: 
+  id: 14
+  timetable_slot_id: 4
+  timetable_day_id: 3
+fith: 
+  id: 15
+  timetable_slot_id: 5
+  timetable_day_id: 3
+sith: 
+  id: 16
+  timetable_slot_id: 6
+  timetable_day_id: 3
+seth: 
+  id: 17
+  timetable_slot_id: 7
+  timetable_day_id: 3
+eith: 
+  id: 18
+  timetable_slot_id: 8
+  timetable_day_id: 3
+nith: 
+  id: 19
+  timetable_slot_id: 3
+  timetable_day_id: 4
+twenth: 
+  id: 20
+  timetable_slot_id: 4
+  timetable_day_id: 4
+tw1th: 
+  id: 21
+  timetable_slot_id: 5
+  timetable_day_id: 4
+tw2th: 
+  id: 22
+  timetable_slot_id: 6
+  timetable_day_id: 4
+tw3th: 
+  id: 23
+  timetable_slot_id: 7
+  timetable_day_id: 4
+tw4th: 
+  id: 24
+  timetable_slot_id: 8
+  timetable_day_id: 4
+tw5th: 
+  id: 25
+  timetable_slot_id: 3
+  timetable_day_id: 5
+tw6th: 
+  id: 26
+  timetable_slot_id: 4
+  timetable_day_id: 5
+tw7th: 
+  id: 29
+  timetable_slot_id: 5
+  timetable_day_id: 5

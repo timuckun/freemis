@@ -1,0 +1,22 @@
+<h1>Listing Guidance Groups</h1>
+
+<table>
+  <tr>
+  	<td>Name</td>
+    <td>Code</td>
+  </tr>
+
+<% for guidance_group in @guidance_groups %>
+  <tr>
+  	<td><%=h guidance_group.name%></td>
+	<td><%=h guidance_group.code%></td>
+    <td><%= link_to 'Show', guidance_group %></td>
+    <td><%= link_to 'Edit', edit_guidance_group_path(guidance_group) %></td>
+    <td><%= link_to 'Destroy', guidance_group, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New guidance_group', new_guidance_group_path %>

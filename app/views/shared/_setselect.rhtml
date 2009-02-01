@@ -1,0 +1,10 @@
+<% "Copyright (c) Robert Jones 2006" %>
+<% if @pupil_sets %>
+<!-- select element to chose one of the pupil_sets taught by user -->
+<select id="pupil_set" class="weelist"  name="pupil_set" onchange="submit();">
+<option value="">-- choose a set --</option>
+<%=options_from_collection_for_select(@pupil_sets, "id", "set_code", params[:pupil_set].to_i) %>
+</select>
+<% else %>
+You do not have access to any pupil sets.
+<% end %>

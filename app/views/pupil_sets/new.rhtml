@@ -1,0 +1,23 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>New pupil_set</h1>
+
+<%= form_tag :action => 'create' %>
+<%= error_messages_for 'pupil_set' %>
+
+<!--[form:pupil_set]-->
+<p><label for="pupil_set_set_code">Set code</label><br/>
+<%= text_field 'pupil_set', 'set_code'  %></p>
+
+<p><label for="pupil_set_academic_year_id">Academic Year</label><br/>
+<select id="pupil_set_academic_year_id"  name="pupil_set[academic_year_id]">
+<%= options_from_collection_for_select(AcademicYear.find(:all), "id", "name", @pupil_set.academic_year_id)  %></select>
+
+
+<p><label for="pupil_set_course_id">Course</label><br/>
+<select id="pupil_set_course_id"  name="pupil_set[course_id]">
+<%= options_from_collection_for_select(Course.find(:all, :order=>"course_code"), "id", "course_code", @pupil_set.course_id)  %></select>
+
+<!--[eoform:pupil_set]-->
+  <%= submit_tag "Create" %>
+</form>

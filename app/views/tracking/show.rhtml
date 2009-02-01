@@ -1,0 +1,10 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<% for column in TrackingElement.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @tracking_element.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @tracking_element %> |
+<%= link_to 'Back', :action => 'list' %>

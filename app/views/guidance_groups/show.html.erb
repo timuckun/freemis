@@ -1,0 +1,14 @@
+<h2> Showing Guidance Group</h2>
+<p><b>Name:</b> <%=h @guidance_group.name %></p>
+<p><b>Code:</b> <%=h @guidance_group.code %></p>
+<p><b>Guidance Teacher(s):</b> 
+<% for teacher in @guidance_group. users -%>
+  <%= teacher.fullname %> 
+<% end -%></p>
+<p><b>Pupils:</b></p>
+<% for pupil in @guidance_group.pupils -%>
+  <p><%=h pupil.full_name %></p>
+<% end -%>
+
+<%= link_to 'Edit', edit_guidance_group_path(@guidance_group) %> |
+<%= link_to 'Back', guidance_groups_path %>

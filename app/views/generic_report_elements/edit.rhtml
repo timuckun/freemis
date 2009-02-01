@@ -1,0 +1,11 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Editing generic_report_element</h1>
+
+<%= form_tag :action => 'update', :id => @generic_report_element %>
+  <%= render :partial=>"form" %>
+  <%= submit_tag "Edit" %>
+</form>
+
+<%= link_to 'Show', :action => 'show', :id => @generic_report_element %> |
+<%= link_to 'Back', :action => 'list' %>

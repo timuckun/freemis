@@ -1,0 +1,9 @@
+<h1>Editing timetable_day</h1>
+
+<%= form_tag :action => 'update', :id => @timetable_day %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+</form>
+
+<%= link_to 'Show', :action => 'show', :id => @timetable_day %> |
+<%= link_to 'Back', :action => 'list' %>

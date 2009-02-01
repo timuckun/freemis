@@ -1,0 +1,8 @@
+<%= form_remote_tag(:url      => {:action=>"next_pupil_reports"},
+                    :loading  => "Element.show('loading-indicator')",
+                    :complete => "Element.hide('loading-indicator')", :html=>{:id=>"ajax_form"} ) %>
+Please select a guidance group:
+<%=  select("guidance_group", "id", GuidanceGroup.find(:all).collect {|p| [ p.name, p.id ] }.sort_by{|p| p[0]}, { :include_blank => true }) %>
+<%= hidden_field_tag 'pupil_id', @pupil.id unless @completed==true%>
+<%=submit_tag "Print Reports", {:id=>"submit_button"} %>
+</form>

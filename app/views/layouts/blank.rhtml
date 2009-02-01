@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>FreeMIS <%=": " << controller.controller_name.humanize.capitalise_phrase if controller.controller_name!="top" %> <%=" / " << params[:action].humanize.capitalise_phrase if params[:action]!="index" %></title>
+  <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+  <%= javascript_include_tag 'prototype' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'ajax_scaffold' %>
+  <%= javascript_include_tag 'rico_corner' %>
+  <%= javascript_include_tag 'effects' %>
+  <%= javascript_include_tag 'controls' %>
+  <%= javascript_include_tag 'dragdrop' %>
+  <%= javascript_include_tag 'spell' %>
+  <%= stylesheet_link_tag 'st_style'%>
+  <%= stylesheet_link_tag 'ajax_scaffold'%>
+  <%= stylesheet_link_tag 'scaffold', :media=>"all" %>
+  <%= stylesheet_link_tag 'print', :media=>"print" %>
+  <%= stylesheet_link_tag "st_layout" %>
+  <%= stylesheet_link_tag "st_schooltool", :media=>"all"   %>
+</head>
+<body>
+<%= @content_for_layout %>
+</body></html>

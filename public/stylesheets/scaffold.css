@@ -1,0 +1,228 @@
+body { background-color: #fff; color: #333; }
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+select.med_select {
+  width: 80px;
+}
+.notice {
+    /*
+    * A status message for the user.  There should only be one of these as it
+    * is meant to be displayed prominently
+    */
+    position: absolute;
+    top: -10px;
+    left: 400px;
+    margin: 1em;
+    padding: 1em;
+    background: #EED680;
+    border: 1px #0000ba solid;
+}
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+div.uploadStatus {
+  margin: 5px;
+}
+div.page_breaker {
+  page-break-before: always;
+}
+div.progressBar {
+  margin: 5px;
+}
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid grey;
+  width: 100%;
+}
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+td.small_list {
+font-size: 10px
+}
+div.text_body {
+border: solid 1px black;
+padding: 5px;
+width: 80%;
+}
+.centred {
+text-align: center;
+}
+/*
+* Full Report Print Layout
+*/
+
+div.A5_border {
+  width: 19cm;
+  height: 13.5cm;
+  border: solid 1px black;
+}
+div.A5_border h2, h3, h4, h5, h6 {
+  text-align: center
+}
+.report_header {
+  text-align: center;
+}
+div.cover_logo{
+  text-align: center;
+}
+td.heading {
+  font-size: 16px;
+  font-weight: bold;
+}
+table.report {
+  width: 19cm;
+  height: 13.5cm;
+  page-break-inside: avoid;
+  border: 1px solid black;
+}
+table.report th {
+  padding: 15px;
+}
+table.report_elements {
+  border-spacing: 5px;
+}
+td.report_element_label {
+  min-width: 30px;
+  border: solid black 1px;
+  font-size: 12pt;
+  padding: 4px;
+  margin-bottom: 5px;
+}
+td.report_element_value {
+  width : 40px;
+  border: solid black 1px;
+  font-size: 12pt;
+  text-align: center;
+  padding: 4px;
+  margin-bottom: 5px
+}
+div.comment_wrapper {
+  border: solid black 1px;
+  padding: 4px;
+  margin: 15px;
+  height: 200px;
+}
+
+span.handle {
+  cursor: move;
+}
+img {
+vertical-align: text-bottom
+}
+ul.sortable li {
+border: 1px solid black;
+padding: 3px;
+margin: 3px;
+width: 480px;
+}
+.misspelled {
+  color: red;
+    font-weight: bold;
+      text-decoration: underline;
+      }
+      .suggestions {
+        background: #fffdc5;
+        }
+        .suggestion {
+          padding: 0 12px 2px 2px;
+          }
+          .suggestion:hover {
+            background: #59afa9;
+            }
+#spell_div {
+  padding: 10px 10px 250px 10px;
+}
+  textarea {
+  /*   background: orange; */
+  /*   font-weight: bold; */
+    font-size: 14px;
+      border: 1px solid red;
+        padding: 5px 5px 10px 5px;
+          overflow: hidden;
+          }
+          .text_body {
+            border: 1px solid red;
+              padding: 5px 5px 200px 5px;
+              }
+
+span.highlight {
+background: yellow;
+width: 200px;
+}
+
+table.interim_data {
+  border: 1px solid #222222;
+  width: 100%;
+  margin: 2em 0em;
+}
+
+table.interim_header {
+  width: 100%;
+}
+
+tr.header_row {
+background: #333;
+color: white;
+}
+table.interim_data th {
+  border: 1px solid #AAA;
+  padding: 0.1em 0.5em;
+}
+table.interim_data td {
+  border: 1px solid #AAA;
+  padding: 0.1em 0.5em;
+}
+td.left {
+text-align: left;
+}
+td.data {
+text-align: center;
+}
+tr.odd {
+  background: #999;
+}
+span.warning {
+background: red;
+}
+table.plain_bordered {
+border-collapse: collapse;
+margin: 0;
+}
+table.plain_bordered td th {
+border: 1px solid black;
+}
+

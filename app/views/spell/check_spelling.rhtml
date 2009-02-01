@@ -1,0 +1,25 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Checking Spelling</h1>
+<p>Any misspelled words are underlined.  Click on them to view a drop-down list of possible replacements.  Once you have finished checking, click on "resume editing" to return to the form you came from.</p>
+
+<%= form_tag :action => 'edit_text' %>
+<% params[:return_params].each do |key,value| %>
+<%= hidden_field_tag("return_params[#{key}]",value) %>
+<% end %>
+<%= hidden_field_tag("return_controller", params[:return_controller]) %>
+<%= hidden_field_tag("return_action", params[:return_action]) %>
+<div class="text_body">
+<%=
+  count = 0
+  @aspell.correct_lines(session[:body]) do |misspelled|
+    count = count + 1
+    render(:partial => "misspelled",
+           :object => misspelled,
+           :locals => {:cnt => count})
+  end
+-%>
+</div>
+<br /><br />
+<%= submit_tag "Resume editing", :name => 'done' %>
+</form></div>

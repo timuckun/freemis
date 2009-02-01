@@ -1,0 +1,24 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+maths_S1:
+  id: 1
+  course_code: MA1
+  course_subject: Mathematics
+  course_level_id: 1
+  academic_year_id: 1
+maths_S2:
+  id: 2
+  course_code: Mathematics S2
+  course_level_id: 1
+  academic_year_id: 2
+english_S1:
+  id: 3
+  course_code: EN1
+  course_subject: English
+  course_level_id: 1
+  academic_year_id: 1
+cdt_S1:
+  id: 4
+  course_code: CDT1
+  course_subject: CDT
+  course_level_id: 1
+  academic_year_id: 1

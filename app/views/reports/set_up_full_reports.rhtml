@@ -1,0 +1,15 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Set Up Full Reports</h1>
+<% if @academic_year %>
+<h3>Academic Year:<%=h@academic_year.name %></h3>
+<h4>Generic Report Elements</h4>
+<div id="generic_elements">
+<%=render :partial=>"academic_years/set_up_generic_report_elements", :object=>@academic_year%>
+</div>
+<% else %>
+<h3>Please start by selecting an academic year</h3>
+<%= form_tag %>
+<%= academic_year_selector %>
+</form>
+<% end %>

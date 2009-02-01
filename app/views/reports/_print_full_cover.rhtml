@@ -1,0 +1,8 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<div id="<%=print_full_cover.id.to_s %>" class="A5_border">
+<div class="cover_org_name"><h1> <%=Organization.find(1).name %> </h1></div>
+<div class="cover_logo" ><%=image_tag("schoollogo.gif") %></div>
+<div class="cover_pupil_name"><h1><%= print_full_cover.full_name %></h1></div>
+<div class="cover_date"><h2><%=Date.today.strftime("%B %Y") %></h2></div>
+</div>

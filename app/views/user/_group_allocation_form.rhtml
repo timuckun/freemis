@@ -1,0 +1,9 @@
+<% "Copyright (c) Robert Jones 2006" %>
+<ul>
+<% Group.find(:all).each do |g| %>
+   <li><input type="checkbox" name="user[group_ids][]" 
+          value="<%= g.id %>" 
+          <% if @user.groups.include?(g) %> checked="checked" <% end %> />
+<%= g.name %></li>
+<% end %>
+</ul>

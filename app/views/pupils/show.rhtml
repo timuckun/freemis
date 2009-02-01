@@ -1,0 +1,10 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<% for column in Pupil.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @pupil.send(column.name) %>
+</p>
+<% end %>
+<%= render :partial=>"pupil_sets_list" %>
+<%= link_to 'Edit', :action => 'edit', :id => @pupil %> |
+<%= link_to 'Back', :action => 'search' %>

@@ -1,0 +1,13 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<div class="print_report_a4">
+  <table class="interim_header">
+    <tr>
+      <th align="left">Progress Report</th>
+      <th><%= print_one_interim.full_name %></th>
+      <th align="right"><%= Time.now.strftime("%b %Y") %></th>
+    </tr>
+  </table>
+  <%= render :partial=>"print_one_interim_data_table", :object=>print_one_interim.interim_report(@school_session) %>
+  <%= personalise({"*FN*"=>print_one_interim.known_as,"*N*"=>print_one_interim.name}, print_one_interim.academic_year.interim_report_text) %>
+</div>

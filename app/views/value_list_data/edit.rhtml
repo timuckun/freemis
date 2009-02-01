@@ -1,0 +1,11 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Editing value_list_datum</h1>
+
+<%= form_tag :action => 'update', :id => @value_list_datum %>
+  <%= render :partial=>"form" %>
+  <%= submit_tag "Edit" %>
+</form>
+
+<%= link_to 'Show', :action => 'show', :id => @value_list_datum %> |
+<%= link_to 'Back', :action => 'list' %>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first_value_list_datum:
+  id: 1
+  value_item: A
+  value_list_id: 1
+another_value_list_datum:
+  id: 2
+  value_item: B
+  value_list_id: 1

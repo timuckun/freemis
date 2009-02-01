@@ -1,0 +1,30 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+
+
+<div class="pospage" style="position:relative; width: 800px; height: 500px;">
+
+<div  style="position:absolute; left:40px; top:210px; width:680px; height:280px; z-index:1; " class="fullborder"></div>
+<div style="position:absolute; left:45px; top:170px; height:20px; z-index:2"><span class="heading">Subject: </span><span class="underlined"><%=h print_one.poz_subject%></span></div>
+<div style="position:absolute; left:45px; top:220px; width:80px; height:20px; z-index:2" class="heading">Comment:</div>
+<div  style="position:absolute; left:45px; top:140px; height:20px; z-index:4"><span class="heading">Pupil: </span><span class="underlined"><%=h print_one.pupil.known_as + " " + print_one.pupil.surname %></span></div>
+  <div style="position:absolute; left:614px; top:14px; width:112px; height:120px; z-index:6">
+    <%= image_tag("schoollogo.gif", {:size=>"104x118"}) %></div>
+  <div class="school" style="position:absolute; left:208px; top:47px; width:386px; height:40px; z-index:7">North Berwick High School</div>
+<div class="titleclass" style="position:absolute; left:248px; top:90px; width:347px; height:28px; z-index:8">POSITIVE REFERRAL</div>
+
+  <div style="position:absolute; left:40px; top:27px; width:150px; height:90px; z-index:9"><%= image_tag("authoritylogo.jpg",  {:size=>"136x80"}) %></div>
+  <div  style="position:absolute; left:370px; top:140px;  height:20px; z-index:4"><span class="heading">Register Class: </span><span class="underlined"><%= print_one.pupil.guidance_group.code%></span></div>
+<div style="position:absolute; left:130px; top:260px; width:550px; height:150px; z-index:10" class="comment"><%= simple_format(h( print_one.poz_comment)) %></div>
+<div  style="position:absolute; left:45px; top:410px; height:25px; z-index:5">
+<span class="heading">Teacher: </span><span class="underlined"><%= print_one.user.fullname %></span>
+</div>
+<div style="position:absolute; left:480px; top:410px; height:25px; z-index:5">
+<span class="heading">Date: </span><span class="underlined"><%=h Time.at(print_one.updated_at).strftime("%d %b %Y")%></span>
+</div>
+<div id="headblurb1" style="position:absolute; left:47px; top:440px; width:535px; height:25px; z-index:5">
+<i>I am very pleased to acknowledge the above success.  Well done!</i></br>Mr Sutherland</div>
+  </div>
+  </div>
+
+</div>

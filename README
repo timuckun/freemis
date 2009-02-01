@@ -1,0 +1,22 @@
+== Welcome to FreeMIS
+
+FreeMIS is an open source, web based Management Information System for schools.  It
+is built with the Ruby on Rails development framework, and uses the MySQL database
+by default, but you can plug in any back end database that Rails supports (currently
+MySQL, PostgreSQL, Oracle, SQLServer, SQLite).
+
+
+== Getting started
+
+This package contains a Rails application.  In order to run this application, you will
+need to set up the Ruby on Rails environment on your server, and also have a web server 
+and database.  None of this is going to be easy if you are an educator looking to try
+out FreeMIS.  If this sounds like you, I thoroughly recommend that you look at the online
+demo - you can find it at http://demo.freemis.net.  If you have have already checked out
+the demo, and think that FreeMIS might be what you are looking for, then you will need to
+organise professional web hosting.  Get in touch with me (email at the bottom) and I can
+point you in the direction of a trustworthy company.
+
+Robert Jones
+
+jonesieboy@gmail.com

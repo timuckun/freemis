@@ -1,0 +1,35 @@
+Period1: 
+    name: Period 1
+    id: "3"
+    end_time: "09:45:00"
+    start_time: "08:45:00"
+Period2: 
+    name: Period 2
+    id: "4"
+    end_time: "10:45:00"
+    start_time: "09:45:00"
+Period3: 
+    name: Period 3
+    id: "5"
+    end_time: "12:00:00"
+    start_time: "11:00:00"
+Period4: 
+    name: Period 4
+    id: "6"
+    end_time: "13:00:00"
+    start_time: "12:00:00"
+Period5: 
+    name: Period 5
+    id: "7"
+    end_time: "14:50:00"
+    start_time: "13:50:00"
+Period6: 
+    name: Period 6
+    id: "8"
+    end_time: "15:50:00"
+    start_time: "14:50:00"
+Period7: 
+    name: Period 7
+    id: "10"
+    end_time: "15:00:00"
+    start_time: "06:00:00"

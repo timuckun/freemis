@@ -1,0 +1,13 @@
+maths:
+  id: 1
+  name: Maths
+  code: MA
+english:
+  id: 2
+  name: English
+  code: EN
+science:
+  id: 3
+  name: Science
+  code: SC
+  

@@ -1,0 +1,27 @@
+<h2>Edit User Details</h2>
+<% if !@user %>
+Please select a user:<%= form_tag %>
+<%= user_selector %>
+</form>
+<% else %>
+    Edit Details for <%= @user.fullname %> (<%=h @user.login %>)
+    <%= form_tag %>
+       <%= error_messages_for 'user' %>
+<p><label for="user_title">Title</label><br/>
+<%= text_field 'user', 'title'  %></p>
+<p><label for="user_firstname">First Name</label><br/>
+<%= text_field 'user', 'firstname'  %></p>
+<p><label for="user_lastname">Last Name</label><br/>
+<%= text_field 'user', 'lastname'  %></p>
+<p><label for="user_email">Email</label><br/>
+<%= text_field 'user', 'email'  %></p>
+<p><label for="user_faculty_id">Faculty</label><br/>
+<select id="user_faculty_id" class="weelist"  name="user[faculty_id]">
+<option value="">--Select a Faculty</option>
+<%=options_from_collection_for_select(@faculties, "id", "name", @user.faculty_id.to_i) %>
+</select></p>
+<%= render :partial=>"group_allocation_form"%>
+        <%= submit_tag %>
+      <%= hidden_field_tag("id", @user.id) %>
+    </form>
+<% end %>

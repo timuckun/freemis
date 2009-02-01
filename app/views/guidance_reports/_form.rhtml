@@ -1,0 +1,23 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<%= error_messages_for 'guidance_report' %>
+
+<!--[form:guidance_report]-->
+
+
+
+<table><tr>
+<% for element in @guidance_report.guidance_report_element_data.sort {|x,y| x.guidance_report_element.element_order<=>y.guidance_report_element.element_order} %>
+<td><label for="elements_<%=element.id %>_value"><%=h element.guidance_report_element.element %></label></td>
+<td><input id="guidance_report_elements_<%=h element.id %>_value"  name="guidance_report[elements][<%=h element.id %>][value]" class="med_select"value="<%=h element.value %>"></td>
+<% end %></tr></table>
+
+
+<p><label for="guidance_report_reports_comment1">Comment</label><br/>
+<%= text_area ('guidance_report', 'reports_comment1', "cols"=>50, "rows"=>6)%></p>
+<% if @principal %>
+<p><label for="guidance_report_reports_comment2">Head Teacher Comment</label><br/>
+<%= text_area ('guidance_report', 'reports_comment2', "cols"=>50, "rows"=>6)%></p>
+<% end %>
+<!--[eoform:guidance_report]-->
+

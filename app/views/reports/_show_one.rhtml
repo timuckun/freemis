@@ -1,0 +1,28 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h2><%=h report.setlink.pupil_set.academic_year.name %> <%=h report.setlink.pupil_set.course.course_subject %> <%=h report.setlink.pupil_set.school_session.name %></h2>
+<table width=80%>
+  <tr><% for element_data in report.assessed_element_data %>
+    <td><%=h element_data.assessed_element.element %>: <%=h element_data.value %></td>
+  <% end %>
+   </tr>
+</table>
+<table width=80%>
+  <tr><% for element_data in report.generic_report_element_data %>
+    <td><%=h element_data.generic_report_element.element %>: <%=h element_data.value %></td>
+  <% end %>
+   </tr>
+</table>
+<table width=80%>
+  <tr><% for element_data in report.tracking_element_data %>
+    <td><%=h element_data.tracking_element.element %>: <%=h element_data.value %></td>
+  <% end %>
+   </tr>
+</table>
+<table width="80%">
+  <tr>
+    <td valign="top">Comment:</td>
+    <td><%= simple_format(h(report.reports_comment1)) %></td></tr>
+
+</table>
+<%= link_to image_tag("printer.png", :title=>"print this report"), {:controller=>"reports", :action => 'print_one_full', :id => report}, {:target=>"_new"} %><hr />

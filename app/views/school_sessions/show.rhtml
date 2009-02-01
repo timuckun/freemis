@@ -1,0 +1,10 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<% for column in SchoolSession.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @school_session.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @school_session %> |
+<%= link_to 'Back', :action => 'list' %>

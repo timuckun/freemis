@@ -1,0 +1,11 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<%= error_messages_for 'academic_year' %>
+
+<!--[form:academic_year]-->
+<p><label for="academic_year_name">Name</label><br/>
+<%= text_field 'academic_year', 'name'  %></p>
+<p><label for="academic_year_interim_report_text">Text for Interim Report</label><br/>
+<%= text_area 'academic_year', 'interim_report_text', :cols=>"100"  %></p>
+<!--[eoform:academic_year]-->
+

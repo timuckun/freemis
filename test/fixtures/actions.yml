@@ -1,0 +1,5 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+teacher_action:
+  id: 1
+admin_action:
+  id: 2

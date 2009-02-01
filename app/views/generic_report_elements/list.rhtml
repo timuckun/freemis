@@ -1,0 +1,29 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Listing generic_report_elements</h1>
+
+<table>
+  <tr>
+<% for column in GenericReportElement.content_columns %>
+    <th><%= column.human_name %></th>
+<% end %>
+  </tr>
+  
+<% for generic_report_element in @generic_report_elements %>
+  <tr>
+  <% for column in GenericReportElement.content_columns %>
+    <td><%=h generic_report_element.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => generic_report_element %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => generic_report_element %></td>
+    <td><%= link_to 'Destroy', {:action => 'destroy', :id => generic_report_element}, :confirm => "Are you sure?" %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "Previous page", { :page => @generic_report_element_pages.current.previous } if @generic_report_element_pages.current.previous %>
+<%= link_to "Next page", { :page => @generic_report_element_pages.current.next } if @generic_report_element_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New generic_report_element', :action => 'new' %>

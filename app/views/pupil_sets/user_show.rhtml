@@ -1,0 +1,17 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Set <%= @pupil_set.set_code %></h1>
+<table>
+<tr>
+  <th>Pupils</th>
+</tr>
+<% for pupil in @pupil_set.pupils %>
+<tr>
+<td class="small_list"><%=h pupil.full_name.to_s %></td>
+</tr>
+<% end %>
+</table>
+<%= link_to 'Add Pupils', :action => 'user_add_pupils', :id => @pupil_set %>|
+<%= link_to 'Remove Pupils', :action => 'user_remove_pupils', :id => @pupil_set %>|
+<%= link_to 'Drop this set', {:action => 'drop', :id => @pupil_set}, :confirm => 'Are you sure that you no longer teach this set?' %>
+<%= link_to 'list sets', :action => 'user_list' %>

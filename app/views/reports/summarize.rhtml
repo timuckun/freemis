@@ -1,0 +1,22 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h2>Print Full Report Summary</h2>
+<% if !params[:pupil_set] %>
+   <%= form_tag({},  :target=>"_new") %>
+    <%= set_selector %>
+  </form>
+<% else %>
+  <table border="1">
+<% for header in @header_array %>
+  <th><%=h header %></th>
+<% end %>
+</tr>
+<% for row in @rows %>
+  <tr>
+    <% for cell in row %>
+      <td>&nbsp;<%=h cell.to_s %>&nbsp;</td>
+    <% end %>
+  </tr>
+<% end %>
+</tr></table>
+<% end %>

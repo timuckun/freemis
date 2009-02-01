@@ -1,0 +1,37 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Adhoc Positive Referrals</h1>
+<% if !@results %>
+Find Pupil:
+  <%= form_tag :action => 'adhoc', :id=>""%>
+    <%= text_field_tag("pupil_name") %>
+    <%= submit_tag "Find" %>
+  </form>
+<% end %>
+<% if @pupils %>
+<table>
+  <tr>
+    <th>Known As&nbsp;</th>
+    <th>Surname&nbsp;</th>
+    <th>Pastoral Group</th>
+  </tr>
+
+<% for pupil in @pupils.select{|p| p.guidance_group} %>
+  <tr>
+    <td><%=h pupil.known_as %></td>
+    <td><%=h pupil.surname %></td>
+    <td><%=h pupil.guidance_group.code %></td>
+    <td><%= link_to 'Create Positive Referral', :action => 'adhoc', :id => pupil %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+
+<% if @pupil && params[:commit]!="Create"%>
+<h2> Positive Referral for <%= @pupil.full_name %> </h2>
+<%= form_tag :action => 'adhoc', :id => @pupil %>
+Subject:<%=text_field("positive", "poz_subject") %>
+  <%= render :partial=>'form' %>
+  <%= submit_tag 'Create' %>
+</form>
+<% end %>

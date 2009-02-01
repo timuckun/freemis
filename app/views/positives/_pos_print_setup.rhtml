@@ -1,0 +1,12 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Print Positive Referrals</h1>
+<%= form_tag ({ :action=>"print"}, { :target=>"_new"}) %>
+  <%= date_select("print_date", "value") %>
+  <%= submit_tag 'List' %>
+</form>
+<% @days_array.each  do |day| %>
+  <% if pos_count(day)>0 %>
+    <%= link_to day.strftime("%A %d %b") + ": " + pluralize(pos_count(day),"referral"), {:action=>"print", :day=>day.to_i},{ :target=>"_new", :class=>"show_visited"} %></br>
+  <% end %>
+<% end %>

@@ -1,0 +1,28 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Print <%=h @academic_year.name if @academic_year %> Tracking Letters</h1>
+<% if !@academic_year  %>
+<%= form_tag %>
+<%= academic_year_selector %>
+</form>
+<% end %>
+<% if @academic_year %>
+<%=form_tag %>
+<%= hidden_field_tag("academic_year_id", @academic_year.id) %>
+<select id="letter_id" name="letter_id" onchange="submit();" >
+<option value="nil">--select a letter--</option>
+<%= options_from_collection_for_select(@letters, "id", "title") %>
+</select>
+</form>
+<% end %>
+<% if @selected_letter %>
+<% for pupil in @academic_year.pupils do  %>
+<br><div style="page-break-before: always">
+<%=personalise({'*PFN'=>pupil.primary_residential_parental_unit.names, '*PRO'=>pupil.pronoun, '*POS'=>pupil.possessive_pronoun}, @selected_letter.text1.gsub('*FN',pupil.known_as).gsub('*SN',pupil.surname).gsub('*RG',pupil.guidance_group.code).gsub('*SESS',@session_name).gsub('*Y',@academic_year.name)) %>
+<%= show_pupil_targets(pupil, @selected_letter.tracking_element) %><br>
+<%=personalise({'*PRO'=>pupil.pronoun, '*POS'=>pupil.possessive_pronoun}, @selected_letter.text2.gsub('*FN',pupil.known_as).gsub('*SN',pupil.surname).gsub('*RG',pupil.guidance_group.code).gsub('*SESS',@session_name).gsub('*Y',@academic_year.name)) %>
+</div>
+<%= image_tag("headsig.jpg") %><br>
+<%= @selected_letter.text3 %>
+<% end %>
+<% end %>

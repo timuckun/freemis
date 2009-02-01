@@ -1,0 +1,7 @@
+<%= error_messages_for 'timetable_period' %>
+
+<!--[form:timetable_period]-->
+<%=select("timetable_period", "timetable_day_id", TimetableDay.find_all.collect {|p| [ p.name, p.id ] }) %>
+<%=select("timetable_period", "timetable_slot_id", TimetableSlot.find_all.collect {|p| [ p.name, p.id ] }) %>
+<!--[eoform:timetable_period]-->
+

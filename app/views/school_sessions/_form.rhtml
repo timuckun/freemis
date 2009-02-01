@@ -1,0 +1,15 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<%= error_messages_for 'school_session' %>
+
+<!--[form:school_session]-->
+<p><label for="school_session_session_start_date">Session start date</label><br/>
+<%= @school_session.school_session_start_date %></p>
+<%= hidden_field 'school_session', 'school_session_start_date' %>
+<p><label for="school_session_session_end_date">Session end date</label><br/>
+<%= date_select( 'school_session', 'school_session_end_date')  %></p>
+
+<p><label for="school_session_name">Name</label><br/>
+<%= text_field 'school_session', 'name'  %></p>
+<!--[eoform:school_session]-->
+

@@ -1,0 +1,40 @@
+#header, #tools, #column-left, select , .no_print, #footer{
+  display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Trebuchet MS", Sans-Serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 20pt;
+}
+div.merit_guidance, div.merit_cert, div.merit_type, div.merit_date {
+    text-align: center;
+}
+div.merit_name {
+  text-align: center;
+  font-size: 18pt;
+}
+div.merit_org_name {
+  text-align: center;
+  font-size: 24pt;
+}
+div.merit_guidance{
+  font-size: 16pt;
+  }
+div.merit_type {
+  font-size: 24pt;
+}
+div.merit_cert {
+  font-size: 16pt;
+}
+div.merit_date {
+  font-size: 14pt;
+}
+div.merit_headsig {
+ position: relative;
+ left: 1cm;
+ font-size: 12pt;
+ }

@@ -1,0 +1,11 @@
+<div id="column-center">
+<% form_for :user do |form| %>
+<p><label for="login">Login</label><br/>
+<%= form.text_field :login %></p>
+
+<p><label for="password">Password</label><br/>
+<%= form.password_field :password %></p>
+
+<p><%= submit_tag 'Log in' %></p>
+<% end %>
+</div>

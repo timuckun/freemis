@@ -1,0 +1,7 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<!-- select element to chose one of the academic years in the institution-->
+<select id="academic_year_id" class="weelist"  name="academic_year_id" onchange="submit();">
+<option value="">-- choose a yeargroup --</option>
+<%=options_from_collection_for_select(@academic_years, "id", "name", params[:academic_year_id].to_i) %>
+</select>

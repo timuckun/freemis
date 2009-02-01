@@ -1,0 +1,22 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Editing course</h1>
+<% if !@course %>
+  <%= form_tag %>
+  <%= object_selector(Course) %>
+  </form>
+<% else %>
+  <%= form_tag :action => 'update', :id => @course %>
+    <%= render :partial=>"form" %>
+    <%= submit_tag "Edit" %>
+  </form>
+  <hr/>
+  <h6>Edit Assessed Elements for <%=@course.course_code %></h6>
+  <div id="assessed_elements_form">
+  <%=render :partial=>"assessed_elements_form" %>
+  </div>
+  <%= sortable_element 'list', 
+      :complete => visual_effect(:highlight, 'list'), 
+      :url => { :action => "reorder_assessed_elements", :id=>@course.id},
+      :handle=>'handle' %>
+<% end %>

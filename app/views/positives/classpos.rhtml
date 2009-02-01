@@ -1,0 +1,24 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Set Based Positive Referrals</h1>
+
+<% if !@pupil_set -%>
+<%= form_tag %>
+  <%= set_selector %>
+  <% if params[:pupil_set]%>
+    <%pupil_selector(params[:pupil_set],params[:newsetlink]) %>
+  <% end %>
+</form>
+<% else %>
+<table>
+<tr><th>Pupil</th><th>Number of Positives<br/>so far this year</th><th>Create</th><th>View</th></tr>
+<% for setlink in @setlinks %>
+<tr><td><%= setlink.pupil.full_name %></td><td align="center"><%= setlink.positives.length.to_s %></td><td><%=link_to "create",{ :action=>"new",:setlink=>setlink.id} %></td>
+<% if setlink.positives.length>0 -%>
+<td><%= link_to "view", {:action=>'list_for_pupil_in_class', :setlink=>setlink.id} %></td>
+<%end-%>
+</tr>
+<% end %>
+</table>
+
+<% end %>

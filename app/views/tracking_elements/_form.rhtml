@@ -1,0 +1,27 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<%= error_messages_for 'tracking_element' %>
+
+<!--[form:tracking_element]-->
+<p><label for="tracking_element_year_code">Year code</label><br/>
+<%= text_field 'tracking_element', 'year_code'  %></p>
+
+<p><label for="tracking_element_element">Element</label><br/>
+<%= text_field 'tracking_element', 'element'  %></p>
+
+<p><label for="tracking_element_element_order">Element order</label><br/>
+<%= text_field 'tracking_element', 'element_order'  %></p>
+
+<p><label for="tracking_element_visibility">Visibility</label><br/>
+</p>
+
+<p><label for="tracking_element_editability">Editability</label><br/>
+<%= text_field 'tracking_element', 'editability'  %></p>
+
+<p><label for="tracking_element_start_date">Start date</label><br/>
+<%= date_select 'tracking_element', 'start_date'  %></p>
+
+<p><label for="tracking_element_end_date">End date</label><br/>
+<%= date_select 'tracking_element', 'end_date'  %></p>
+<!--[eoform:tracking_element]-->
+

@@ -1,0 +1,30 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<table class="report">
+  <tr>
+    <td colspan=3>
+    <table width="100%"><tr><th><%= print_guidance_report.pupil.full_name %></th>
+    <th>Guidance Report</th>
+    <th><%= Time.at(print_guidance_report.updated_on).strftime("%b %Y") %></th></tr></table></td>
+  </tr>
+  <% if print_guidance_report.guidance_report_element_data.length>0 %>
+    <tr><% for element_data in print_guidance_report.guidance_report_element_data %>
+          <td class="report_element_label"><%=h element_data.guidance_report_element.element %>:</td>
+          <td class="report_element_value"><%=h element_data.value %></td>
+        <% end %>
+       </tr>
+    <% end %>
+  <tr>
+    <td colspan="6">
+        <b>Guidance Teacher's Comment:</b><br>
+        <span class="report_comment" style="font-size: 10px;"><%=simple_format(h(print_guidance_report.reports_comment1)) %></span><br>
+        <% for teacher in print_guidance_report.pupil.guidance_group.users  %>
+        <%=teacher.fullname+" " %> 
+        <% end %>
+        <br><br><br>
+        <b>Head Teacher's Comment:</b><br>
+        <span class="report_comment" style="font-size: 10px;"><%=simple_format(h(print_guidance_report.reports_comment2)) %></span><br>Colin T. Sutherland
+    </td>
+  </tr>
+</table>
+

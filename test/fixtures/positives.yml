@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+jimmys_first:
+  id: 1
+  pupil_id: 100003
+  setlink_id: 1
+  poz_comment: Nice work
+  user_id: 1000007
+jimmys_second:
+  id: 2
+  pupil_id: 100003
+  setlink_id: 1
+  poz_comment: Nicer work than before
+  user_id: 1000007

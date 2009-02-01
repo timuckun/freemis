@@ -1,0 +1,10 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>FreeMIS Message of the Day</h1>
+  
+<% for motd in @motds %>
+<b><%= motd.created_on.strftime("%A %d %B") %></b>
+<%= simple_format(h(motd.text)) %>
+<%= link_to "delete", :action=>"destroy", :controller=>"motds", :id=>motd.id if Group.find(2).has_user(current_user)%><hr>
+<% end %>
+<%= link_to "new", :action=>"new", :controller=>"motds"  if Group.find(2).has_user(current_user)%>

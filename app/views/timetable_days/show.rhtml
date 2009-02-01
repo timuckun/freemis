@@ -1,0 +1,8 @@
+<% for column in TimetableDay.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @timetable_day.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @timetable_day %> |
+<%= link_to 'Back', :action => 'list' %>

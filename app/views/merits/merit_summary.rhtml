@@ -1,0 +1,8 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Summary of Awards (based on the above cutoffs)</h1>
+<table class="data_table"><tr><th>Year</th><th>None</th><th>Bronze</th><th>Silver</th><th>Gold</th></tr>
+<% for year in @summary.sort %>
+  <tr style="text-align: center"><td><%=year.first %></td><td><%=year.last["none"] %></td><td><%=year.last["bronze"] %></td><td><%=year.last["silver"] %></td><td><%=year.last["gold"] %></td></tr>
+<% end %>
+</table>

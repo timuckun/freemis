@@ -1,0 +1,8 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first_maths_element:
+  id: 1
+  course_id: 1
+  element: Knowledge and Understanding
+another_maths_element:
+  id: 2
+  course_id: 1

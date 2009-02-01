@@ -1,0 +1,24 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Listing academic_years</h1>
+
+<table>
+  <tr>
+    <th>Year</th>
+  </tr>
+  
+<% for academic_year in @academic_years %>
+  <tr>
+    <td><%=h academic_year.name %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => academic_year %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => academic_year %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "Previous page", { :page => @academic_year_pages.current.previous } if @academic_year_pages.current.previous %>
+<%= link_to "Next page", { :page => @academic_year_pages.current.next } if @academic_year_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New academic_year', :action => 'new' %>

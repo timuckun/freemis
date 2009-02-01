@@ -1,0 +1,24 @@
+<% "Copyright (c) Robert Jones 2006" %>
+<%= form_tag %>
+<%= error_messages_for 'user' %>
+<p><label for="user_login">Login</label><br/>
+<%= text_field 'user', 'login'  %></p>
+<p><label for="user_title">Title</label><br/>
+<%= text_field 'user', 'title'  %></p>
+<p><label for="user_firstname">First Name</label><br/>
+<%= text_field 'user', 'firstname'  %></p>
+<p><label for="user_lastname">Last Name</label><br/>
+<%= text_field 'user', 'lastname'  %></p>
+<p><label for="user_email">Email</label><br/>
+<%= text_field 'user', 'email'  %></p>
+<p><label for="user_password">Password</label><br/>
+<%= password_field 'user', 'password' %></p>
+<p><label for="user_password_confirmation">Confirm Password</label><br/>
+<%= password_field 'user', 'password_confirmation' %></p>
+<ul>
+    <% Group.find(:all).each do |g| %>
+    <li><input type="checkbox" name="user_groups[group_ids][]" value="<%= g.id %>"/><%= g.name %></li>
+    <% end %>
+</ul>
+<%= submit_tag "Create User" %>
+</form>

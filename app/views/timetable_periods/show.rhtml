@@ -1,0 +1,9 @@
+
+<p>
+  <b>Day:</b> <%=h @timetable_period.timetable_day.name %>
+</p>
+<p>
+  <b>Period:</b> <%=h @timetable_period.timetable_slot.name %>
+</p>
+<%= link_to 'Edit', :action => 'edit', :id => @timetable_period %> |
+<%= link_to 'Back', :action => 'list' %>

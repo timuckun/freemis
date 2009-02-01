@@ -1,0 +1,29 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Listing guidance_reports</h1>
+
+<table>
+  <tr>
+  <% for column in GuidanceReport.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for guidance_report in @guidance_reports %>
+  <tr>
+  <% for column in GuidanceReport.content_columns %>
+    <td><%=h guidance_report.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => guidance_report %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => guidance_report %></td>
+    <td><%= link_to 'Destroy', {:action => 'destroy', :id => guidance_report}, :confirm => 'Are you sure?' %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @guidance_report_pages.current.previous } if @guidance_report_pages.current.previous %>
+<%= link_to 'Next page', { :page => @guidance_report_pages.current.next } if @guidance_report_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New guidance_report', :action => 'new' %>

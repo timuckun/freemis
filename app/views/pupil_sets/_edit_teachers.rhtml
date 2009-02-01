@@ -1,0 +1,12 @@
+<!--[form:edit_teachers] Copyright (c) Robert Jones 2006-->
+<%= "Unselect a teacher to remove them as a teacher of this set.<br/>" if @pupil_set.users.size>0 %>
+<table><% for teacher in @pupil_set.users %>
+<tr><td><%= teacher.fullname %></td><td><input type="checkbox" name="users[<%=teacher.id.to_s%>]" checked="checked" onchange="submit();"/></td></tr>
+<% end %>
+</table>
+<%= "[No teachers allocated to this set]<br/>" unless @pupil_set.users.size>0 %>
+<br/>
+Select a user to add them as a teacher of this set:<br/>
+<%= user_selector %>
+<!--[eoform:edit_teachers]-->
+

@@ -1,0 +1,40 @@
+<table class="gradebook" id="gradebook">
+  <tr>
+  <th colspan="3"><%= link_to image_tag("door_out.png"), {:controller=>"timetable" }, :style=>"float: left" %><%=h @pupil_set.set_code %></th>
+  <% @pupil_set.gradebook_assessments.each do |assessment|  -%>
+  <th><%= link_to(image_tag("arrow_up.png"), 
+                       :action=>:index,
+                       :assessment_id=>assessment) %>
+      <%= link_to(image_tag("arrow_down.png"), 
+                       :action=>:index,
+                       :assessment_id=>assessment,
+                       :order=>"descending"  ) %>
+  </th>
+  <% end %>
+  </tr>
+  <tr>
+  <th colspan="3">Pupils<%= link_to(image_tag("arrow_down.png"), 
+                       :action=>:index) %>
+  </th>
+  <% @pupil_set.gradebook_assessments.each do |assessment|  -%>
+  <th><%= link_to_remote(assessment.name, 
+                       :update=> "gradebook_container" , 
+                       :url   =>{ :action=>:show_column_form, 
+                                  :pupil_set_id=>@pupil_set,
+                                  :id=>assessment }) %><br/><%=assessment.assessment_date %></th>
+  <% end %>
+  </tr>
+  <% for pupil in @pupils %>
+  <tr id="ps<%=pupil.id %>" class="not" onclick="togglerowhighlight('ps<%=pupil.id %>');">
+  <td class="pupil_details"><%=h pupil.known_as %></td>
+  <td class="pupil_details"><%=h pupil.surname %></td>
+  <td class="pupil_details"><%=h pupil.guidance_group.code %></td>
+  <% @pupil_set.gradebook_assessments.each do |assessment|  -%>
+    <td class=<%= assessment.id==params[:assessment_id].to_i ? "sorted" : "unsorted" %>><%=h (pupil.gradebook_scores.find_by_gradebook_assessment_id(assessment.id)  &&  pupil.gradebook_scores.find_by_gradebook_assessment_id(assessment.id).score) || " " %></td>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+<%= link_to_remote "New Assessment", 
+                   :update=>"gradebook_container", 
+                   :url=>{:action=>"show_grade_assessment_form", :id=>@pupil_set} %>

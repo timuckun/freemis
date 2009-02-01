@@ -1,0 +1,11 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<li class="suggestion"><%=
+link_to_remote(
+  suggest_item,
+  :complete => "new Element.remove('suggest__#{word_count}')",
+  :update => "id__#{word_count}",
+  :url => {
+    :action => 'replace',
+    :id => word_count,
+    :with => suggest_item}) -%><li>

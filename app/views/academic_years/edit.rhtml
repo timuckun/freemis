@@ -1,0 +1,28 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Editing Academic Year <%=h @academic_year.name %></h1>
+
+<%= form_tag :action => 'update', :id => @academic_year %>
+  <%= render :partial=>"form" %>
+  <%= submit_tag "Edit" %>
+</form>
+ <hr/>
+  <h6>Edit Interim Report Elements for <%=@academic_year.name %></h6>
+  These elements appear on the interim reports for all pupil sets in this academic year.
+  <div id="interim_report_elements_form">
+  <%=render :partial=>"interim_report_elements_form" %>
+  </div>
+<hr/>
+  <h6>Edit Generic Full Report Elements for <%=@academic_year.name %></h6>
+  These elements appear on the full reports for all pupil sets in this academic year.
+  <div id="generic_elements">
+  <%=render :partial=>"set_up_generic_report_elements" %>
+  </div>
+<hr/>
+  <h6>Edit Tracking Elements for <%=@academic_year.name %></h6>
+  These elements appear on the tracking screen for all pupil sets in this academic year.
+  <div id="tracking_elements_form">
+  <%=render :partial=>"tracking/tracking_elements_form" %>
+  </div>
+<%= link_to 'Show', :action => 'show', :id => @academic_year %> |
+<%= link_to 'Back', :action => 'list' %>

@@ -1,0 +1,29 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Listing interim_report_element_data</h1>
+
+<table>
+  <tr>
+  <% for column in InterimReportElementDatum.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for interim_report_element_datum in @interim_report_element_data %>
+  <tr>
+  <% for column in InterimReportElementDatum.content_columns %>
+    <td><%=h interim_report_element_datum.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => interim_report_element_datum %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => interim_report_element_datum %></td>
+    <td><%= link_to 'Destroy', {:action => 'destroy', :id => interim_report_element_datum}, :confirm => 'Are you sure?' %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @interim_report_element_datum_pages.current.previous } if @interim_report_element_datum_pages.current.previous %>
+<%= link_to 'Next page', { :page => @interim_report_element_datum_pages.current.next } if @interim_report_element_datum_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New interim_report_element_datum', :action => 'new' %>

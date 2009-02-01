@@ -1,0 +1,10 @@
+<% for pupil in @pupils %>
+  <%= render :partial =>"shared/page_breaker" %>
+  <%= render :partial =>"print_full_cover", :object=>pupil %>
+  <%= render :partial =>"shared/page_breaker" %>
+  <%= render :partial=>"print_one_full", :collection=>pupil[:report_array], :spacer_template => "shared/page_breaker" %>
+  <% if pupil[:guidance_report_data] %>
+  <%= render :partial=>"shared/page_breaker" %>
+  <%= render :partial=>"print_guidance_report", :object=>pupil[:guidance_report_data] %>
+  <% end %>
+<% end %>

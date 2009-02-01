@@ -1,0 +1,13 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1> Award Merits</h1>
+<% if !@pupil_set %>
+  <%= form_tag %>
+  <%= set_selector %>
+<% else %>
+ <%= form_tag %>
+<div id="merit_form">
+<%= render :partial=>"form" %>
+</div>
+<% end %>
+</form>

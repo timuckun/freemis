@@ -1,0 +1,14 @@
+jimmy:
+  id: 100003
+  known_as: Jimmy
+  surname: Page
+  academic_year_id: 1
+  gender: m
+  guidance_group_id: 1
+joey:
+  id: 1
+  known_as: Joey
+  surname: Page
+  academic_year_id: 1
+  gender: m
+  guidance_group_id: 1

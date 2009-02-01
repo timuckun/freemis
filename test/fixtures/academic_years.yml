@@ -1,0 +1,8 @@
+first_academic_year:
+  id: 1
+  name: S1
+  interim_report_text: Do well
+another_academic_year:
+  id: 2
+  name: S2
+  interim_report_text: Do better

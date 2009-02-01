@@ -1,0 +1,17 @@
+<% "Copyright (c) Robert Jones 2006" %>
+<% for column in ["login","title","firstname","lastname","email"] %>
+<p>
+  <b><%= column %>:</b> <%=h @user.send(column) %>
+</p>
+<% end %>
+<p>
+  <b>Faculty:</b> <%=h @user.faculty.name rescue nil %>
+</p>
+<p>
+  <b>Groups:</b>
+<% for group in @user.groups %>
+<%=h group.name%> 
+<% end %>
+</p>
+<p><%= link_to 'Edit This User', :action => 'admin_edit', :user_id => @user %></p>
+<p><%= link_to 'Edit Another User', :action => 'admin_edit'%></p>

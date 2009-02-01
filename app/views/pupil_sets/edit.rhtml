@@ -1,0 +1,36 @@
+<% if params[:id] %>
+ <table><tr><td colspan=2><h1>Editing Pupil Set</h1></td></tr><tr><td valign="top">
+  <div class="sub_box"><h2>Edit Set Details of <%=@pupil_set.set_code%></h2>
+  <%= form_tag :action => 'update', :id => @pupil_set %>
+    <%= render :partial=>'form' %>
+    <%= submit_tag 'Edit' %>
+  </form><br/><br/></div>
+  
+  <div class="sub_box"><h2>Edit Teachers of <%=@pupil_set.set_code%></h2>
+  <%= form_tag :action => 'update_users', :id => @pupil_set %>
+    <%= render :partial=>'edit_teachers' %>
+    <%= submit_tag 'Edit' %>
+  </form></div>
+  </td>
+  <td valign="top">
+  <div class="sub_box"><h2>Edit Pupils in <%=@pupil_set.set_code%></h2>
+  <%= form_tag :action => 'update_pupils', :id => @pupil_set %>
+    <%= render :partial=>'edit_pupils' %>
+    <%= submit_tag 'Edit' %>
+  </form></div>
+  </td></tr>
+  <tr><td colspan=2>
+  <div class="sub_box"><h2>Edit Timetable for <%=@pupil_set.set_code%></h2>
+  <%= form_tag :action => 'update_timetable', :id => @pupil_set %>
+    <%= render :partial=>'edit_timetable' %>
+    <%= submit_tag 'Edit' %>
+  </form></div>
+  </td></tr></table>
+<% else %>
+  <%= form_tag %>
+  <select id="id" class="weelist"  name="id" onchange="submit();">
+  <option value="">-- choose a set --</option>
+  <%=options_from_collection_for_select(@pupil_sets, "id", "set_code") %>
+  </select>
+  </form>
+<% end %>

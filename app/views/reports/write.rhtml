@@ -1,0 +1,11 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Write Full Reports <%=h "for " + @pupil_set.set_code.to_s if params[:pupil_set] %> <%= link_to image_tag( "printer.png", :title=>"print the whole set"), {:action=>"print_set_reports", :pupil_set=>params[:pupil_set] } if params[:pupil_set]%></h1>
+<% if !params[:pupil_set] %>
+   <%= form_tag %>
+    <%= set_selector %>
+  </form>
+<% else %>
+ 
+  <%= render :partial=>"full_edit" %>
+<% end %>

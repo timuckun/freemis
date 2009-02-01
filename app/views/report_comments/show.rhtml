@@ -1,0 +1,10 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<% for column in ReportComment.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @report_comment.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @report_comment %> |
+<%= link_to 'Back', :action => 'list' %>

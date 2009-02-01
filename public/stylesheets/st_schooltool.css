@@ -1,0 +1,36 @@
+/*
+ * This Stylesheet includes portions of SchoolTool code released under GPL - see http://schooltool.org
+ */
+
+
+.section {
+    margin: 0.5em;
+    background: #eae8e3;
+    padding: 2px;
+    border: 1px #999 solid;
+}
+
+ul.container-content a {
+    text-decoration: none;
+}
+
+ul.container-content {
+    padding: 0;
+    margin: 0;
+    margin: 0.25em 0 0 0.5em;
+}
+
+li.course {
+    border: none;
+    border-left: 1px #d6d6d6 solid;
+    margin-bottom: 1em;
+}
+
+ul.section-list {
+    margin: 0.25em 0 0 0.5em;
+}
+
+ul.section-list a {
+    font-weight: normal;
+}
+

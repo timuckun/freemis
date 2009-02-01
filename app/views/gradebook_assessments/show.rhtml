@@ -1,0 +1,8 @@
+<% for column in GradebookAssessments.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @gradebook_assessments.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @gradebook_assessments %> |
+<%= link_to 'Back', :action => 'list' %>

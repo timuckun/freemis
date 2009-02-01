@@ -1,0 +1,17 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>New positive for <%=@setlink.pupil.full_name %></h1>
+
+<%= error_messages_for 'positive' %>
+    <label for="positive_poz_subject">Subject:</label>
+    <%= form_tag :action => 'create', :id=>@positive %>
+    <%=text_field_tag("positive[poz_subject]",@setlink.pupil_set.course.course_subject) %>
+    <%= render :partial=>"form" %>
+    <%=hidden_field_tag("pupil_set",@setlink.pupil_set.id) %>
+    <%=hidden_field_tag("positive[setlink_id]",@setlink.id) %>
+    <%=hidden_field_tag("positive[user_id]",current_user.id) %>
+    <%=hidden_field_tag("positive[pupil_id]",@setlink.pupil.id) %>
+    <%=hidden_field_tag("pupil_set_id",@setlink.pupil_set.id) %>
+    <%= submit_tag "Save" %>
+  </form>
+

@@ -1,0 +1,48 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<table class="report">
+  <tr>
+    <td colspan=3>
+    <table width="100%"><tr><th><%= print_one_full.pupil.full_name %></th>
+    <th><%=h print_one_full.setlink.pupil_set.course.course_subject %> <%h print_one_full.setlink.pupil_set.course.course_level.code %></th>
+    <th><%= Time.at(print_one_full.last_edited).strftime("%B %Y") %></th></tr></table></td>
+  </tr>
+  <tr valign="top">
+  <% if print_one_full.assessed_element_data.length>0 %>
+    <td align="left">
+      <table class="report_elements"><% for element_data in print_one_full.assessed_element_data.select{|el| el.value!=""} %>
+        <tr>
+          <td class="report_element_label"><%=h element_data.assessed_element.element %>:</td>
+          <td class="report_element_value"><%=h element_data.value %></td>
+        </tr><% end %>
+       </table>
+    </td>
+    <% end %>
+    <td align=" <%= print_one_full.assessed_element_data.length>0? "right":"left"  %>">
+      <table class="report_elements"><% for element_data in print_one_full.generic_report_element_data.select{|el| el.value!=""} %>
+        <tr>
+          <td class="report_element_label"><%=h element_data.generic_report_element.element %>:</td>
+          <td class="report_element_value"><%=h element_data.value %></td>
+        </tr><% end %><% for element_data in print_one_full.tracking_element_data %>
+        <tr>
+          <td class="report_element_label"><%=h element_data.tracking_element.element %>:</td>
+          <td class="report_element_value"><%=h element_data.value %></td>
+        </tr><% end %>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3"><div class="comment_wrapper">
+        <b>Comment:</b>
+        <div class="report_comment"><%=simple_format(h(print_one_full.reports_comment1)) %></div>
+        </div>
+    </td>
+  </tr>
+  <tr><td colspan="3"><b>Teacher<%="s" if print_one_full.setlink.pupil_set.users.length>1 %>:</b>
+       <span class="teacher_name"> <% for teacher in print_one_full.setlink.pupil_set.users %>
+          <%=h [teacher.title, teacher.lastname].join(" ") %> &nbsp; &nbsp; &nbsp; &nbsp;
+        <% end %>
+      </span></td>
+  </tr>
+</table>
+

@@ -1,0 +1,33 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Listing school_sessions</h1>
+
+<table>
+  <tr>
+  <th>Name</th>
+  
+    <th>Start Date</th>
+  
+    <th>End Date</th>
+  </tr>
+  
+<% for school_session in @school_sessions %>
+  <tr>
+    <td><%=h school_session.name %></td>
+    <td><%=h school_session.school_session_start_date%></td>
+    <td><%=h school_session.school_session_end_date%></td>
+    <td><%= link_to 'Show', :action => 'show', :id => school_session %></td>
+    <% if school_session==@school_sessions.last %>
+      <td><%= link_to 'Edit', :action => 'edit', :id => school_session %></td>
+      <td><%= link_to 'Destroy', {:action => 'destroy', :id => school_session}, :confirm => 'Are you sure?' if school_session.pupil_sets.length==0 %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @school_session_pages.current.previous } if @school_session_pages.current.previous %>
+<%= link_to 'Next page', { :page => @school_session_pages.current.next } if @school_session_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New school_session', :action => 'new' %>

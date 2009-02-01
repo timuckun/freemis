@@ -1,0 +1,10 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>New interim_report_element</h1>
+
+<%= form_tag :action => 'create' %>
+  <%= render :partial=>'form' %>
+  <%= submit_tag "Create" %>
+</form>
+
+<%= link_to 'Back', :action => 'list' %>

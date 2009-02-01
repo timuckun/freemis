@@ -1,0 +1,27 @@
+<h1>Listing gradebook_assessments</h1>
+
+<table>
+  <tr>
+  <% for column in GradebookAssessment.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for gradebook_assessments in @gradebook_assessments %>
+  <tr>
+  <% for column in GradebookAssessment.content_columns %>
+    <td><%=h gradebook_assessments.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => gradebook_assessments %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => gradebook_assessments %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => gradebook_assessments }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @gradebook_assessments_pages.current.previous } if @gradebook_assessments_pages.current.previous %>
+<%= link_to 'Next page', { :page => @gradebook_assessments_pages.current.next } if @gradebook_assessments_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New gradebook_assessments', :action => 'new' %>

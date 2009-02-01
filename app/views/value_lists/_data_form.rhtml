@@ -1,0 +1,28 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<ul class="sortable"  id="list">
+<% for item in data_form.value_list_data  %>
+    <li id="item_<%= item.id%>"><span class="handle"><%=image_tag("arrow_switch.png", :title=>"Drag elements to change order") %></span><%= item.value_item %>
+    <%= link_to_remote("delete", :update=>'value_list_elements', 
+                                                   :url=>{:controller=>"value_list_data", 
+                                                               :action=>"destroy", 
+                                                               :id=>item.id, 
+                                                               :value_list_id=>data_form.id}, 
+                                                   :complete => visual_effect(:highlight, 'list') )%>
+    </li>
+ <% end %>
+ </ul><br>
+ <%= error_messages_for 'value_list_datum' if @value_list_datum%> 
+<%= form_remote_tag :update=> "value_list_elements",
+                                     :url=>{ :controller=>"value_list_data", 
+                                                  :action =>'create', 
+                                                  :value_list_id=>data_form},
+                                     :complete => visual_effect(:highlight, 'list') %>
+<%= text_field("value_list_datum","value_item") %>
+<%= submit_tag "New item" %>
+</form>
+
+<%= sortable_element 'list', 
+      :complete => visual_effect(:highlight, 'list'), 
+      :url => { :action => "reorder_elements", :id=>data_form.id},
+      :handle=>'handle' %>

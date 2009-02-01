@@ -1,0 +1,14 @@
+<!--[form:edit_pupils] Copyright (c) Robert Jones 2006-->
+<p>Select a pupil to add them to this set:</p>
+<select id="pupil_id" class="weelist"  name="pupil[id]" onchange="submit();">
+<option value="">-- choose a pupil --</option>
+<%=options_from_collection_for_select(@pupils, "id", "full_name", @user_id) %>
+</select>
+<p>Unselect pupils to remove them from this set.</p>
+<table>
+<% for pupil in @pupil_set.pupils %>
+<tr class="row_box"><td><%= pupil.full_name %></td><td><input type="checkbox" name="pupils[<%=pupil.id.to_s%>]" checked="checked" onchange="submit();"/></td></tr>
+<% end %>
+</table>
+<!--[eoform:edit_teachers]-->
+

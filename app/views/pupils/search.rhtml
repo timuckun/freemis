@@ -1,0 +1,9 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Find Pupils</h1>
+<% if !@results %>
+  <% form_for :pupil, :url => { :action => 'search'} do |form|%>
+    <%= form.text_field :name %>
+    <%= submit_tag "Find" %>
+  <% end %>
+<% end %>

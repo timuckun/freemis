@@ -1,0 +1,28 @@
+first_pupil_set:
+  id:                 1
+  set_code:           1/MA/Y3
+  academic_year_id:   1
+  school_session_id:  1
+  pupil_set_end_date: NULL
+  course_id: 1
+pupil_set_2:
+  id:                 2
+  set_code:           1/EN/1
+  academic_year_id:   1
+  school_session_id:  1
+  pupil_set_end_date: NULL
+  course_id: 3
+pupil_set_3:
+  id:                 3
+  set_code:           1/CDT/1
+  academic_year_id:   1
+  school_session_id:  1
+  pupil_set_end_date: NULL
+  course_id: 4
+jimmys_pupil_set:
+  id:                 4
+  set_code:           1/CDT/2
+  academic_year_id:   1
+  school_session_id:  1
+  pupil_set_end_date: NULL
+  course_id: 4

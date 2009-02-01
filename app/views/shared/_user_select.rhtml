@@ -1,0 +1,5 @@
+<!-- select element to chose one of the users -->
+<select id="user_id" class="weelist"  name="user_id" onchange="submit();">
+<option value="">-- choose a user --</option>
+<%=options_from_collection_for_select(@users, "id", "fullname", @user_id) %>
+</select>

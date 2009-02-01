@@ -1,0 +1,5 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<% for setlink in @setlinks %>
+<span class="<%= setlink.merit ? "highlight": "plain"%>"><%= link_to_remote setlink.pupil.full_name, :update=>"merit_form", :url=>{:controller=>"merits", :action=>"processor", :setlink=>setlink.id} %></span><br>
+<% end %>

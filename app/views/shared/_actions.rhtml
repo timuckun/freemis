@@ -1,0 +1,15 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<div class="portlet" id="actions">
+  <h4>Actions</h4>
+ <ul>
+ <% for myaction in Action.actions(@controller.controller_name)
+    if myaction.accessible(current_user) %>
+
+ <li><a href="/<%= @controller.controller_name.to_s + "/" + myaction.menu_action.to_s %>"><%= myaction.menu_text %></a></li>
+ <% end %>
+  <% end%>
+ </ul>
+</div>
+
+

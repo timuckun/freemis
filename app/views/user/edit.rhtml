@@ -1,0 +1,18 @@
+<% "Copyright (c) Robert Jones 2006" %>
+<h1>Editing User Details</h1>
+
+<%= form_tag :action => 'update'%>
+<%= error_messages_for 'user' %>
+<p><label for="user_title">Title</label><br/>
+<%= text_field 'user', 'title'  %></p>
+<p><label for="user_firstname">First Name</label><br/>
+<%= text_field 'user', 'firstname'  %></p>
+<p><label for="user_lastname">Last Name</label><br/>
+<%= text_field 'user', 'lastname'  %></p>
+<p><label for="user_email">Email</label><br/>
+<%= text_field 'user', 'email'  %></p>
+<p><label for="user_password">Password</label><br/>
+<%= password_field 'user', 'password' %></p>
+<p><label for="user_password_confirmation">Confirm Password</label><br/>
+<%= password_field 'user', 'password_confirmation' %></p>
+</form>

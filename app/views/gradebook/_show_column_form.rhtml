@@ -1,0 +1,17 @@
+<%=form_remote_tag :update=> "gradebook_container", 
+                   :url=>{:action=>:edit_column, :id=>@pupil_set, :assessment_id=>@assessment},
+                   :complete=>"new Effect.Highlight('gradebook');" %>
+             
+<table class="gradebook" id="gradebook_form">
+<tr>
+  <th>Pupils</th>
+<th><%= @assessment.name%></th>
+</tr>
+    <% @pupil_set.pupils.each do |pupil| %>
+    <tr><td><%=pupil.full_name%></td><td class="input_cell"><input class="text_input" type="text" name="pupils[<%=pupil.id.to_s %>][score]" value="<%=h pupil.gradebook_scores.find_by_gradebook_assessment_id(@assessment.id)  &&  pupil.gradebook_scores.find_by_gradebook_assessment_id(@assessment.id).score %>"/></td>
+    </tr>
+    <% end %>
+</table>
+<%=submit_tag "Save"%> 
+</form>
+<%= button_to "Delete", {:action => 'delete_grade_assessment', :id => @pupil_set, :ass_id=>@assessment}, :confirm =>"Are you sure you want to delete this assessment and all associated data?" %>

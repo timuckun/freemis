@@ -1,0 +1,41 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<%= error_messages_for 'pupil' %>
+
+<!--[form:pupil]-->
+<p><label for="pupil_known_as">Forename</label><br/>
+<%= text_field 'pupil', 'forename'  %></p>
+
+<p><label for="pupil_known_as">Known as</label><br/>
+<%= text_field 'pupil', 'known_as'  %></p>
+
+<p><label for="pupil_middle_names">Middle Names</label><br/>
+<%= text_field 'pupil', 'known_as'  %></p>
+
+<p><label for="pupil_surname">Surname</label><br/>
+<%= text_field 'pupil', 'surname'  %></p>
+
+<p><label for="pupil_preferred_surname">Preferred Surname</label><br/>
+<%= text_field 'pupil', 'preferred_surname'  %></p>
+
+<p><label for="pupil_gender">Gender</label><br/>
+<%=   select("pupil", "gender", [["m","m"],["f","f"]])  %></p>
+
+<p><label for="pupil_d_o_b">Date of Birth</label><br/>
+<%= text_field 'pupil', 'd_o_b'  %></p>
+
+<p><label for="pupil_religion">Religion</label><br/>
+<%= text_field 'pupil', 'religion'  %></p>
+
+<p><label for="pupil_academic_year_id">Year</label><br/>
+<%=select("pupil", "academic_year_id", AcademicYear.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true }) %>
+</p>
+
+<p><label for="pupil_guidance_group">Guidance group</label><br/>
+<%=select("pupil", "guidance_group_id", GuidanceGroup.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true }) %>
+</p>
+
+<p><label for="pupil_leave_date">Leave date</label><br/>
+<%= text_field 'pupil', 'leave_date'  %></p>
+<!--[eoform:pupil]-->
+

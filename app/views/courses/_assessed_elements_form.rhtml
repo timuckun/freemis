@@ -1,0 +1,23 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<!--[form:course_assessed_elements]-->
+<%= form_remote_tag :update=> "assessed_elements_form", :url=>{ :action =>'edit_assessed_elements', :id=>@course}, :complete => visual_effect(:highlight, 'list') %>
+<ul class="sortable"  id="list">
+ <%= render(:partial     =>"element_item",
+            :collection  =>@course.assessed_elements)
+ %>
+ 
+ </ul>
+ <%= submit_tag "Edit" %>
+</form>
+<%= form_remote_tag :update=> "list", :position=>:bottom, :url=>{ :action =>'new_assessed_element', :id=>@course} %>
+<%= submit_tag "New element" %>
+</form>
+<!--[eoform:course_assessed_elements]-->
+
+<%= sortable_element 'list', 
+      :complete => visual_effect(:highlight, 'list'), 
+      :url => { :action => "reorder_assessed_elements", :id=>@course.id},
+      :handle=>'handle' %>
+
+      

@@ -1,0 +1,24 @@
+monday: 
+  id: 1
+  name: Monday
+  order: 1
+tuesday: 
+  id: 2
+  name: Tuesday
+  order: 2
+wednesday: 
+  name: Wednesday
+  order: 3
+  id: 3
+thursday: 
+  name: Thursday
+  order: 4
+  id: 4
+friday: 
+  name: Friday
+  order: 5
+  id: 5
+saturday: 
+  name: Saturday
+  order: 6
+  id: 6

@@ -1,0 +1,10 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<% for column in Action.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @action.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @action %> |
+<%= link_to 'Back', :action => 'list' %>

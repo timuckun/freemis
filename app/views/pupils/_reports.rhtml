@@ -1,0 +1,12 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Reports History for <%=h @pupil.known_as.to_s + " " + @pupil.surname.to_s %></h1>
+<% if @pupil.reports.length > 0 %>
+<% for report in @pupil.reports %>
+<%= render "reports/_show_one", {"report"=>report} if report && (!@report || @report!=report)%>
+<% end %>
+<% for active_session in SchoolSession.find(:all).select{|s| @pupil.historical_pupil_sets(s).length>0} %>
+  <h3>Interim Report for <%= active_session.name %> </h3>
+<%= render :partial=>"reports/print_one_interim_data_table", :object=>@pupil.interim_report(active_session) %>
+<% end %>
+<% end %>

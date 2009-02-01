@@ -1,0 +1,16 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<%= link_to 'Show', :action => 'user_show', :id => @pupil_set %>|
+    <%= link_to 'Add Pupils', :action => 'user_add_pupils', :id => @pupil_set %>|
+    <%= link_to 'Drop', {:action => 'drop', :id => @pupil_set}, :confirm => 'Are you sure that you no longer teach this set?' %>
+<h1>Remove Pupils from <%=h @pupil_set.set_code %></h1>
+
+<table>
+<% for pupil in @pupil_set.pupils -%>
+  <tr>
+    <td><%=h pupil.full_name %></td>
+    <td><%= link_to 'remove', {:action => 'user_remove_pupils', :id => @pupil_set, :pupil_id=>pupil.id}, :confirm => "Are you sure you want to remove #{pupil.full_name}?" %></td>
+  </tr>
+<% end %>
+</table>
+

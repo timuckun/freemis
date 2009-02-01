@@ -1,0 +1,22 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<%= form_remote_tag :update=> "generic_elements", :url=>{ :controller=>"academic_years", :action =>'edit_generic_report_elements', :id=>@academic_year.id}, :complete => visual_effect(:highlight, 'genlist') %>
+<ul class="sortable"  id="genlist">
+<% for element in @academic_year.generic_report_elements  %>
+    <li id="item_<%= element.id%>"><span class="handle"><%=image_tag("arrow_switch.png", :title=>"Drag elements to change order") %></span><input type="text" size="30" id="academic_year_generic_report_elements_<%=h element.id %>_element"  name="academic_year[generic_report_elements][<%=h element.id %>][element]" value="<%=h element.element%>"/>
+     <select id="academic_year_generic_report_elements_<%=h element.id %>_value_list_id"  name="academic_year[generic_report_elements][<%=h element.id %>][value_list_id]">
+  <option value=""> </option>
+  <%= options_from_collection_for_select(ValueList.find(:all, :conditions=>"end_date is null"), "id", "name", element.value_list_id)  %></select><%= link_to_remote image_tag("cancel.png"), :update=>"generic_elements", :url=>{ :controller=>"academic_years", :action=>"retire_generic_report_element", :id=>@academic_year.id, :element_id=>element.id}, :confirm=>"Are you sure you want to delete this element?" %><br/></li>
+ <% end %>
+ </ul><br/>
+ <%= submit_tag "Edit" if @academic_year.generic_report_elements.length>0%>
+</form>
+<%= form_remote_tag :update=> "generic_elements", :url=>{ :controller=>"academic_years", :action =>'new_generic_report_element', :id=>@academic_year.id} %>
+<%= submit_tag "New element" %>
+</form>
+<!--[eoform:course_assessed_elements]-->
+
+<%= sortable_element 'genlist', 
+      :complete => visual_effect(:highlight, 'genlist'), 
+      :url => { :controller=>"academic_years", :action => "reorder_generic_report_elements", :id=>@academic_year.id},
+      :handle=>'handle' %>

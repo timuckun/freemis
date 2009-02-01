@@ -1,0 +1,18 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<script language="JavaScript" type="text/javascript">
+var MENU_ITEMS =
+[
+<%= makemenu() %>
+];
+</script><%= javascript_include_tag "menu.js" %>
+
+<!-- files with geometry and styles structures -->
+<%= javascript_include_tag "menu_tpl.js" %>
+<div id="myMenuid">
+<script language="JavaScript">
+  new menu (MENU_ITEMS, MENU_POS);
+</script>
+</div>
+
+

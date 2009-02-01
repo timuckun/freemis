@@ -1,0 +1,13 @@
+
+<p>
+  <b>Name:</b> <%=h @timetable_slot.name %>
+</p>
+<p>
+  <b>Start Time:</b> <%=h @timetable_slot.start_time.strftime("%H:%M") %>
+</p>
+<p>
+  <b>End Time:</b> <%=h @timetable_slot.end_time.strftime("%H:%M") %>
+</p>
+
+<%= link_to 'Edit', :action => 'edit', :id => @timetable_slot %> |
+<%= link_to 'Back', :action => 'list' %>

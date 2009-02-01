@@ -1,0 +1,7 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<!-- select element to chose one of the pupil_sets taught by user -->
+<select id="<%=data["variable_name"] %>" class="weelist"  name="<%= data["variable_name"] %>" onchange="submit();">
+<option value=""><%=data["select_label"] %></option>
+<%=options_from_collection_for_select(@objects, "id", data["display_column"], params[data["variable_name"]].to_i) %>
+</select>

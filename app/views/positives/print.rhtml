@@ -1,0 +1,9 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h2> Listing of Positive Referrals Issued on <%= @today.strftime("%d/%m/%Y") %></h2>
+<table style=" page-break-after: always;"><tr><th>Pupil</th><th>Teacher</th><th>Subject</th><tr>
+<% for positive in @positives %>
+ <tr><td><%=positive.pupil.full_name %></td><td><%=positive.user.fullname %></td><td><%=positive.poz_subject %></td></tr>
+ <% end %>
+ </table>
+ <%= render (:partial=>"print_one", :layout =>"print_positives", :collection=>@positives) %>

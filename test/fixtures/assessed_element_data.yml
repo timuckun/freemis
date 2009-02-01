@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first_assessed_element_datum:
+  id: 1
+  assessed_element_id: 1
+  report_id: 1
+another_assessed_element_datum:
+  id: 2
+  assessed_element_id: 1
+  report_id: 1

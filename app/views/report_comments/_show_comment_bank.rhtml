@@ -1,0 +1,16 @@
+<% "Copyright (c) Robert Jones 2006" %>
+<a href="#" onclick="Element.hide('comment_bank'); Element.show('show_comments_div'); return false;">Hide Comment Bank</a>
+<h3>Comment Bank</h3>
+The following codes will be replaced automatically:  *FN* - pupil's first name; *he* / *He* - gender specific pronoun; *him* - gender specific accusative pronoun; *p* / *P* - gender specific possesive adjective. For example, "*FN* did well in *p* recent test" becomes "Susan did well in her recent test".<% code_hash={"*FN*"=>show_comment_bank.pupil.known_as, "*he*"=> show_comment_bank.pupil.pronoun, "*p*"=>show_comment_bank.pupil.possessive_pronoun, "*P*"=>show_comment_bank.pupil.possessive_pronoun.capitalize, "*He*"=>show_comment_bank.pupil.pronoun.capitalize, "*him*"=>show_comment_bank.pupil.objective_pronoun} %>
+
+<table>
+<% for report_comment in show_comment_bank.report_comments %>
+  <tr><td><button type="button" onclick="document.getElementById('report_reports_comment1').value=document.getElementById('report_reports_comment1').value+'<%=h personalise(code_hash,report_comment.comment_text.gsub("'","\\\\'")) %>'" name="me" value="me" />use</button></td><td><%=h personalise(code_hash,report_comment.comment_text) %></td>
+  <td><%= link_to_remote("delete", :update=>"comment_bank", :url=>{:action=>"destroy", :controller=>"report_comments", :id=>report_comment.id, :report_id=>show_comment_bank.id}, :confirm=>"Are you sure you want to delete this comment?", :complete=>"new Effect.Highlight('comment_bank')") %></td></tr>
+<% end %></table>
+<%= form_remote_tag( :update=>"comment_bank", :url=>{:action=>"create", :controller=>"report_comments"}, :complete=>"new Effect.Highlight('comment_bank')") %>
+<%=hidden_field_tag("report_comment[course_id]",show_comment_bank.course.id) %>
+<%= text_field_tag ("report_comment[comment_text]", "", :size=>80) %>
+<%= hidden_field_tag ("report_id", show_comment_bank.id) %>
+<%= submit_tag "add comment" %>
+</form>

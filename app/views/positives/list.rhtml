@@ -1,0 +1,29 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Listing positives</h1>
+
+<table>
+  <tr>
+  <% for column in Positive.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for positive in @positives %>
+  <tr>
+  <% for column in Positive.content_columns %>
+    <td><%=h positive.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => positive %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => positive %></td>
+    <td><%= link_to 'Destroy', {:action => 'destroy', :id => positive}, :confirm => 'Are you sure?' %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @positive_pages.current.previous } if @positive_pages.current.previous %>
+<%= link_to 'Next page', { :page => @positive_pages.current.next } if @positive_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New positive', :action => 'new' %>

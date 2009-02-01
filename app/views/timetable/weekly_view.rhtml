@@ -1,0 +1,27 @@
+<table class="weekly_view">
+<tr><th>Day</th>
+<% @slots.each do |slot| %>
+<th><%=h slot.name %></th>
+<% end -%>
+</tr>
+<% @days.each do |day| -%>
+<tr>
+<td><%=h day.name %></td>
+<% @slots.each do |slot| -%>
+
+<% case @view_array[day.id][slot.id] 
+    when [] %>
+        <td class="non-contact"> </td>
+    <% when nil %>
+        <td class="blank"></td>
+    <% else -%>
+        <td class="<%= @colors[@view_array[day.id][slot.id].first.set_code] %>">
+        <% @view_array[day.id][slot.id].each do |pupil_set|%>
+        <%= link_to pupil_set.set_code, :controller=>"gradebook", :id=> pupil_set %><br/>
+        <% end%>
+        </td>
+<% end -%>
+<% end -%>
+</tr>
+<% end -%>
+</table>

@@ -1,0 +1,16 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Set Up Tracking Elements</h1>
+
+<% if !params[:academic_year_id] -%>
+   <%= form_tag %>
+    <%= academic_year_selector%>
+  </form>
+<% else %>
+   <h3>Tracking Elements for <%=h @academic_year.name %> </h3>
+   These elements are in the order that they will display across the page.  To change the order, simply drag on the <%= image_tag("arrow_switch.png") %> button to move an element to the desired position.  The orange flash in the background lets you know that the change has been recorded in the system.
+   <div id="tracking_elements_form">
+  <%=render :partial=>"tracking_elements_form" %>
+  </div>
+<% end %>
+Please note that "deleting" a tracking element is non-destructive - it simply labels the element as being inactive.  This page will eventually have a button to show all historical tracking elements, and resurrect them if necessary.  in the meantime, if you "delete" an element by accident (despite being asked to confirm your action!), please tell your FreeMIS support contact, who will be able to reinstate the element for you.

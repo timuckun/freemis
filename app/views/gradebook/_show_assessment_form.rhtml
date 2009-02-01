@@ -1,0 +1,16 @@
+<strong>New Assessment</strong>
+<%= form_remote_tag :update=>"gradebook_container",
+                          :url=>   {:action => 'new_grade_assessment', :id => @pupil_set},
+                          302 => "document.location=request.getResponseHeader('location')" %>
+
+<%= error_messages_for 'gradebook_assessments' %>
+
+<!--[form:gradebook_assessments]-->
+<label for="gradebook_assessments_assessment_date">Date</label><br/>
+<%= date_select 'gradebook_assessments', 'assessment_date'  %><br/><br/>
+
+<label for="gradebook_assessments_name">Name</label><br/>
+<%= text_field 'gradebook_assessments', 'name'  %>
+<!--[eoform:gradebook_assessments]-->
+<%= hidden_field_tag 'gradebook_assessments[pupil_set_id]', @pupil_set.id  %><br/>
+<%= submit_tag 'Create' %>

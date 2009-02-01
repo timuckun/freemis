@@ -1,0 +1,27 @@
+<h1>Listing Timetable Slots</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+  </tr>
+  
+<% for timetable_slot in @timetable_slots %>
+  <tr>
+    <td><%=h timetable_slot.name %></td>
+    <td><%=h timetable_slot.start_time.strftime("%H:%M")%></td>
+    <td><%=h timetable_slot.end_time.strftime("%H:%M") %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => timetable_slot %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => timetable_slot %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => timetable_slot }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @timetable_slot_pages.current.previous } if @timetable_slot_pages.current.previous %>
+<%= link_to 'Next page', { :page => @timetable_slot_pages.current.next } if @timetable_slot_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New timetable_slot', :action => 'new' %>

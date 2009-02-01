@@ -1,0 +1,25 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<table id="show_positive">
+<tr>
+  <td>Pupil:</td>
+  <td><%=h show_positive.pupil.known_as + "  " + show_positive.pupil.surname%></td>
+</tr>
+<tr>
+  <td>Subject:</td>
+  <td><%=h show_positive.poz_subject %></td>
+</tr>
+<tr>
+  <td>Date:</td>
+  <td><%=h show_positive.short_date%></td>
+</tr>
+<tr>
+  <td>Comment:</td>
+  <td><%= simple_format(h(show_positive.poz_comment)) %></td>
+  <td><%= link_to(image_tag("page_edit.png", :title=>"edit this positive referral"), :controller =>'positives', :action => 'edit', :id => show_positive.id, :pupil_set=>params[:pupil_set], :newsetlink=>params[:newsetlink]) if Time.now < 1.day.since(Time.at(show_positive.updated_at)) %></td>
+  <td>
+    <%= link_to(image_tag("printer.png", :title=>"print this positive referral"), { :controller =>'positives', :action => 'printSingle', :id => show_positive.id}, {:target=>"_new", :confirm=>"Please close the new window once you have printed."}) %>
+    <%= link_to(image_tag("page_delete.png", :title=>"delete this positive referral"), { :controller =>'positives', :action => 'destroy', :id => show_positive.id, :pupil_set=>params[:pupil_set], :newsetlink=>params[:newsetlink]}, {:confirm=>"Are you sure you want to delete this positive referral?."}) if Time.now < 1.hour.since(Time.at(show_positive.updated_at))  %>
+  </td>
+</tr>
+</table>

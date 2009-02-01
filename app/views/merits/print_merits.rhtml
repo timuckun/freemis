@@ -1,0 +1,17 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<% if @pupils && @pupils.length>0 %>
+<h1> <%= params[:level].capitalize %> Merit Awards for <%= @academic_year.name %> </h1>
+<p>The following <%= @pupils.length.to_s %> pupils earned this merit award:</p>
+<% for pupil in @pupils %>
+<%= pupil.full_name %>(<%= pupil.merits.size.to_s %> merits)<br/>
+<% end %>
+<%= render :partial=>"shared/page_breaker" %>
+<%= render :partial=>"print_one_merit", :collection=>@pupils%>
+<% else %>
+<%= form_tag  ({:action=>"print_merits"}, { :target=>"_new"})%>
+<%= select_tag "level", options_for_select([["gold"],["silver"],["bronze"],["none"]]) %>
+<%= academic_year_selector%>
+<%= submit_tag %>
+</form>
+<% end %>

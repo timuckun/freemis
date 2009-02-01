@@ -1,0 +1,16 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Listing Sets</h1>
+
+<table style="border-collapse: collapse; padding: 0px" ><tr><th>Set</th><th colspan="4">Actions</t></tr>
+<% for pupil_set in @pupil_sets -%>
+  <tr style="margin: 0px; padding: 0px;">
+    <td style="border: 1px solid black"><%=h pupil_set.set_code %></td>
+    <td style="border: 1px solid black"><%= link_to image_tag("magnifier.png", :title=>'Show'), :action => 'user_show', :id => pupil_set %></td>
+    <td style="border: 1px solid black"><%= link_to image_tag("user_add.png", :title=>"add pupils"), :action => 'user_add_pupils', :id => pupil_set %></td>
+    <td style="border: 1px solid black"><%= link_to image_tag("user_delete.png", :title=>"remove pupils"), :action => 'user_remove_pupils', :id => pupil_set %></td>
+    <td style="border: 1px solid black"><%= link_to image_tag("delete.png", :title=>"drop this set"), {:action => 'drop', :id => pupil_set}, :confirm => 'Are you sure that you no longer teach this set?' %></td>
+  </tr>
+<% end %>
+</table>
+

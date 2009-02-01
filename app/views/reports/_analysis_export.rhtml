@@ -1,0 +1,5 @@
+Report Analysis
+<%= @academic_year.name%> Pupils,Number of "<%=h params[:value] %>" grades for <%=h @generic_report_element.element%>
+<% @pupils.each do |pupil|  -%>
+<%=h pupil.first.known_as %>,<%= pupil.first.surname %>,<%=h pupil.first.guidance_group.code %>,<%=h pupil.last %>
+<% end %>

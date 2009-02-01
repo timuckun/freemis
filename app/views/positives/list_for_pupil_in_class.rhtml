@@ -1,0 +1,7 @@
+<% if @setlink.positives.length>0%>
+  <h2>Previously Written Positive Referrals:</h2>
+    <% for show_positive in @setlink.positives %>
+    <%= render :partial=>"show", :locals=>{:show_positive=>show_positive} if show_positive.pupil%><hr>
+    <% end %>
+    <%= link_to "back", {:action=>"classpos", :pupil_set=>@setlink.pupil_set.id} %>
+  <% end %>

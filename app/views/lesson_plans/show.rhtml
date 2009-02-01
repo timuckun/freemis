@@ -1,0 +1,8 @@
+<% for column in LessonPlan.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%= simple_format h @lesson_plan.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @lesson_plan %> |
+<%= link_to 'Back', :action => 'list' %>

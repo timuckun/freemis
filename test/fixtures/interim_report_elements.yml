@@ -1,0 +1,5 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first_interim_report_element:
+  id: 1
+another_interim_report_element:
+  id: 2

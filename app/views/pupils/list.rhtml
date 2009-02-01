@@ -1,0 +1,22 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Listing pupils</h1>
+
+<table>
+  <tr>
+    <th colspan="3">Pupil</th>
+    <th colspan="4">Action</th>
+  </tr>
+
+<% for pupil in @pupils %>
+  <tr>
+    <td><%=h pupil.known_as %></td>
+    <td><%=h pupil.surname %></td>
+    <td><%=h pupil.guidance_group.code rescue "" %></td>
+    <td><%= link_to(image_tag("user.png", :alt=>"show", :title=>"show"), :action => 'show', :id => pupil) %></td>
+    <td><%= link_to(image_tag("user_edit.png", :alt=>"edit", :title=>"edit"), :action => 'edit', :id => pupil) %></td>
+    <td><%= link_to(image_tag("application_cascade.png", :alt=>"reports", :title=>"reports history"), :action => 'reports', :id => pupil) %></td>
+    <td><%= link_to(image_tag("emoticon_smile.png", :alt=>"positive", :title=>"positive referral history"), :action => 'positives', :id => pupil) %></td>
+  </tr>
+<% end %>
+</table>

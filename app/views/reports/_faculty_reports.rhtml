@@ -1,0 +1,6 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Reports History for <%=h @pupil.known_as.to_s + " " + @pupil.surname.to_s %></h1>
+<% for report in @faculty_reports %>
+<%= render "reports/_show_one", {"report"=>report} if report && (!@report || @report!=report)%>
+<% end %>

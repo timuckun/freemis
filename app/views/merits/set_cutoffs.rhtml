@@ -1,0 +1,20 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Set Merit Cutoffs</h1>
+
+<%= form_tag(:action=>"update_cutoffs") %>
+<table id="cutoff_layout"><tr><th>Year</th><th>Bronze</th><th>Silver</th><th>Gold</th></tr>
+
+<% for this_year in @academic_years %>
+<tr>
+  <td><%= this_year.name %></td>
+  <% ["bronze", "silver", "gold"].each do |this_level| %>
+  <td><%= text_field_tag ("cutoffs[#{this_year.merit_cutoffs.find_by_level(this_level).id}][cutoff]", this_year.merit_cutoffs.find_by_level(this_level).cutoff) %></td>
+  <% end %>
+</tr>
+<% end %>
+</table>
+<%= submit_tag %>
+</form>
+
+<%= render_component(:action=>"merit_summary") %>

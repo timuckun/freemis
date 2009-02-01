@@ -1,0 +1,18 @@
+<h4>Report Element Analysis</h4>
+<p>Please make a selection of year group, element and the value you are interested in.  FreeMIS will then produce an Excel compatible spreadsheet of the pupils in 
+your chosen year group along with their total for the particular element/value combination you chose.</p>
+<%= form_tag %>
+<%= academic_year_selector %>
+<% if @academic_year%>
+<select id="element_id" class="weelist"  name="element_id" onchange="submit();">
+<option value="">-- choose an element --</option>
+<%=options_from_collection_for_select(@academic_year.generic_report_elements, "id", "element", params[:element_id].to_i) %>
+</select>
+<% end %>
+<% if @academic_year && @generic_report_element%>
+<select id="value" class="weelist"  name="value" onchange="submit();">
+<option value="">-- choose a value --</option>
+<%=options_from_collection_for_select(@generic_report_element.value_list.value_list_data, "value_item", "value_item", params[:value]) %>
+</select>
+<% end %>
+</form>

@@ -1,0 +1,139 @@
+body {
+    font-family: Verdana, Helvetica, Arial, Sans-Serif;
+    background: #fff;
+    color: #000;
+    min-width: 700px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+/*
+* Full Report Print Layout
+*/
+
+div.A5_border {
+  width: 19cm;
+  height: 13cm;
+  border: solid 1px black;
+}
+div.A5_border h2, h3, h4, h5, h6 {
+  text-align: center
+}
+div.cover_org_name{
+ position: relative; top: 2cm;
+}
+
+.cover_org_name h1 {
+  font-size: 16pt;
+}
+
+div.cover_pupil_name {
+  position: relative; top: 4cm;
+}
+.cover_pupil_name h1 {
+  font-size: 16pt;
+}
+
+div.cover_logo{
+  position: relative;
+  top: 3cm;
+}
+.cover_logo img{
+  display:block;
+  margin-left:auto;
+  margin-right:auto; 
+  vertical-align: center;
+  text-align: center;
+}
+
+div.cover_date{
+  position: relative; top: 5cm;
+}
+.cover_date h2{
+  font-size: 14pt;
+}
+
+.report_header {
+  text-align: center;
+}
+td.heading {
+  font-size: 14pt;
+  font-weight: bold;
+}
+table.report {
+  width: 19cm;
+  height: 13.5cm;
+  page-break-inside: avoid;
+  border: 1px solid black;
+}
+
+table.report th {
+  padding: 15px;
+}
+table.report_elements {
+  border-spacing: 5px;
+}
+td.report_element_label {
+  min-width: 30px;
+  border: solid black 1px;
+  font-size: 12pt;
+  padding: 4px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  background-color: #ddd;
+  -moz-border-radius: 6px;
+}
+td.report_element_value {
+  min-width: 40px;
+  border: solid black 1px;
+  font-size: 12pt;
+  text-align: center;
+  padding: 4px 15px;
+  margin-bottom: 5px
+}
+div.comment_wrapper {
+  border: solid black 1px;
+  padding: 4px;
+  margin: 5px;
+  height: 6cm;
+  -moz-border-radius: 6px;
+}
+div.report_comment p{
+  font-family: Bitstream, Vera, Serif;
+}
+span.teacher_name{
+  font-style: italic;
+}
+table.interim_data {
+  border: 1px solid #222222;
+  width: 100%;
+  margin: 2em 0em;
+}
+
+table.interim_header {
+  width: 100%;
+}
+
+tr.header_row {
+background: #333;
+color: white;
+}
+table.interim_data th {
+  border: 1px solid #AAA;
+  padding: 0.1em 0.5em;
+}
+table.interim_data td {
+  border: 1px solid #AAA;
+  padding: 0.1em 0.5em;
+}
+td.left {
+text-align: left;
+}
+td.data {
+text-align: center;
+}
+tr.odd {
+  background: #999;
+}

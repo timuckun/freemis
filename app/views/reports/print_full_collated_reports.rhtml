@@ -1,0 +1,18 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Print Full Reports</h1>
+<div id="ajax_form_div">
+<%= form_remote_tag(:url      => {:action=>"next_pupil_reports"},
+                    :loading  => "Element.show('loading-indicator')",
+                    :complete => "Element.hide('loading-indicator')", :html=>{:id=>"ajax_form"} ) %>
+Please select a guidance group:
+<%=  select("guidance_group", "id", GuidanceGroup.find(:all).collect {|p| [ p.name, p.id ] }.sort_by{|p| p[0]}, { :include_blank => true }) %>
+<%=submit_tag "Print Reports", {:id=>"submit_button"} %>
+</form>
+</div>
+<div id="loading-indicator" style="display: none">
+<%= image_tag("loading-indicator.gif",
+              :id    => 'indicator') %><br/>
+</div>
+<div id="completed"></div>
+<div id="results"></div>

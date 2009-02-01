@@ -1,0 +1,17 @@
+<%= error_messages_for 'lesson_plan' %>
+
+<!--[form:lesson_plan]-->
+<p><label for="lesson_chooser">Lesson:</label><br/>
+<select name="lesson_chooser" id="lesson_chooser">
+<%= options_for_select(@lesson_chooser_array) %>
+</select>
+<p><label for="lesson_plan_aim">Aim</label><br/>
+<%= text_area 'lesson_plan', 'aim', "cols" => 40, "rows" => 2 %></p>
+
+<p><label for="lesson_plan_objectives">Objectives</label><br/>
+<%= text_area 'lesson_plan', 'objectives', "cols" => 40, "rows" => 5  %></p>
+
+<p><label for="lesson_plan_lesson">Lesson</label><br/>
+<%= text_area 'lesson_plan', 'lesson', "cols" => 40, "rows" => 10  %></p>
+<!--[eoform:lesson_plan]-->
+

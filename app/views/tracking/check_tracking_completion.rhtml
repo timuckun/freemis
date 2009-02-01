@@ -1,0 +1,19 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Checking for Incomplete Target Setting for Letters</h1>
+<% if params[:letter_id] %>
+The following sets contain pupils for whom no <%=h @element.element %> has been set:<br>
+<% for pupil_set in @result_pupil_sets %>
+<%= pupil_set.set_code %>
+  <% for user in pupil_set.users %>
+      <%= user.fullname %>
+   <% end %><br>
+<% end %>
+<% else %>
+<%=form_tag %>
+<select id="letter_id" name="letter_id" onchange="submit();" >
+<option value="nil">--select a letter--</option>
+<%= options_from_collection_for_select(@letters, "id", "title") if @letters.size>0 %>
+</select>
+</form>
+<% end %>

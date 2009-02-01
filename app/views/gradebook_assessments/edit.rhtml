@@ -1,0 +1,9 @@
+<h1>Editing gradebook_assessments</h1>
+
+<%= form_tag :action => 'update', :id => @gradebook_assessments %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+</form>
+
+<%= link_to 'Show', :action => 'show', :id => @gradebook_assessments %> |
+<%= link_to 'Back', :action => 'list' %>

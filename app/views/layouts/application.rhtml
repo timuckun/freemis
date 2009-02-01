@@ -1,0 +1,63 @@
+<% "Copyright (c) Robert Jones 2006" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>FreeMIS <%=": " << controller.controller_name.humanize.capitalise_phrase if controller.controller_name!="top" %> <%=" / " << params[:action].humanize.capitalise_phrase if params[:action]!="index" %></title>
+  <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+  <%= javascript_include_tag 'prototype' %>
+  <%= javascript_include_tag 'application' %>
+  <% javascript_include_tag 'ajax_scaffold' %>
+  <% javascript_include_tag 'rico_corner' %>
+  <%= javascript_include_tag 'effects' %>
+  <%= javascript_include_tag 'controls' %>
+  <%= javascript_include_tag 'dragdrop' %>
+  <%= javascript_include_tag 'spell' %>
+  <%= stylesheet_link_tag 'st_style'%>
+  <%= stylesheet_link_tag 'ajax_scaffold'%>
+  <%= stylesheet_link_tag 'scaffold', :media=>"all" %>
+  <%= stylesheet_link_tag 'print', :media=>"print" %>
+  <%= stylesheet_link_tag "st_layout" %>
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<%= stylesheet_link_tag "st_schooltool", :media=>"all"   %>
+</head>
+<body>
+<div id="header">
+          <%= link_to image_tag("logo.png", {:class=>"image", :alt=>"link to home page", :title=>"link to home page", :border=>"0"}), {:controller=>"top", :action=>"welcome"} %>
+          <% if flash[:notice] %>
+    <div id="notice" class="notice"><%=h flash[:notice] %></div>
+    <script language="javascript">
+    setTimeout('new Effect.Fade(\'notice\')',5250)
+    </script>
+    <% end %>
+<div class="tools">
+<% if current_user %>
+        <div class="breadcrumbs">
+
+          <%= link_to "Home", {:controller=>"top", :action=>"welcome"} %>
+           <%= "&#187;" if controller.controller_name!="top" %>
+          <%= link_to controller.controller_name.humanize.capitalise_phrase, {:controller=>controller.controller_name}  if controller.controller_name!="top" %>
+            &#187;
+          <%= link_to params[:action].humanize.capitalise_phrase, {:controller=>controller.controller_name, :action=>params[:action]} %>
+        </div>
+        <div>
+           <%= link_to "Logout", {:controller=>"account", :action=>"logout"} if current_user %>
+           <%= "Logged in as: " + current_user.fullname if current_user%>
+        </div>
+</div>
+</div>
+<div id="columns">
+  <div id="column-left">
+  <%= render :partial=>"/shared/navigate" %>
+  <%= render :partial=>"/shared/actions" if params[:controller]!="top"%>
+  </div>
+  <div id="column-center">
+<% else %></div></div><div id="columns">
+  <% end %>
+  <%= @content_for_layout  %>
+  <%="</div>" if session[:user] %>
+</div>
+<% if current_user %>
+<!--<div id="footer">FreeMIS is &copy; <a href="mailto:jonesieboy@gmail.com">R Jones</a>.  Silk icons courtesy of <a href="http://www.famfamfam.com/lab/icons/silk">FamFamFam</a></div>-->
+<% end %>
+</body>
+</html>

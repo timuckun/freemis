@@ -1,0 +1,8 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<select name="newsetlink" id="newsetlink" <%= 'onchange="submit();"' if @auto_submit==true %>>
+  <option value="">-- choose a pupil --</option>
+  <%= options_for_select(@pupils_with_setlinks,@current_setlink.to_s) %></select>
+<% if @show_submit %>
+<%= submit_tag 'Submit' %>
+<% end -%>

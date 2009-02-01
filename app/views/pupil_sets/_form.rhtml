@@ -1,0 +1,18 @@
+<!--[form:pupil_set] Copyright (c) Robert Jones 2006-->
+
+<%= error_messages_for 'pupil_set' %>
+
+<!--[form:pupil_set]-->
+<p><label for="pupil_set_set_code">Set code</label><br/>
+<%= text_field 'pupil_set', 'set_code'  %></p>
+
+<p><label for="pupil_set_academic_year_id">Academic Year</label><br/>
+<select id="pupil_set_academic_year_id"  name="pupil_set[academic_year_id]">
+<%= options_from_collection_for_select(AcademicYear.find(:all), "id", "name", @pupil_set.academic_year.id)  %></select></p>
+
+
+<p><label for="pupil_set_course_id">Course</label><br/>
+<select id="pupil_set_course_id"  name="pupil_set[course_id]">
+<%= options_from_collection_for_select(Course.find_all_by_academic_year_id(@pupil_set.academic_year_id, :order=>"course_code"), "id", "course_code", @pupil_set.course.id)  %></select></p>
+<!--[eoform:pupil_set]-->
+

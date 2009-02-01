@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+teacher_group:
+  id: 1
+  name: teacher
+admin_group:
+  id: 2
+  name: admin
+guidance_group:
+  id: 4
+  name: guidance
+head_group:
+  id: 5
+  name: head teacher

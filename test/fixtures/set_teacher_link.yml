@@ -1,0 +1,6 @@
+set_teacher_link1:
+  set_teacher_link_id: 1
+  pupil_set_id: 1
+  user_id: 1000007
+  end_date: NULL
+  start_date: 1

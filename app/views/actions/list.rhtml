@@ -1,0 +1,29 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Listing actions</h1>
+
+<table>
+  <tr>
+  <% for column in Action.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for action in @actions %>
+  <tr>
+  <% for column in Action.content_columns %>
+    <td><%=h action.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => action %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => action %></td>
+    <td><%= link_to 'Destroy', {:action => 'destroy', :id => action}, :confirm => 'Are you sure?' %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @action_pages.current.previous } if @action_pages.current.previous %>
+<%= link_to 'Next page', { :page => @action_pages.current.next } if @action_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New action', :action => 'new' %>

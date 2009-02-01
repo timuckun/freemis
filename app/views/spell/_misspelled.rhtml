@@ -1,0 +1,21 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<%
+  suggest_div = "suggest__#{cnt}"
+  this_span = "id__#{cnt}"
+%>
+<span id='<%=this_span%>'>
+<%=
+  link_to_remote(
+    misspelled,
+    { :complete => "showSuggestions('#{this_span}','#{suggest_div}')",
+      :update => suggest_div,
+      :condition =>"isInVisible('#{suggest_div}')",
+      :url => {
+        :action => 'suggest',
+        :id => misspelled,
+        :word_count => "#{cnt}"}},
+      :class => 'misspelled',
+      :title => 'Click for suggested spellings') -%>
+</span>
+<ul style="display:none" class="suggestions" id='<%=suggest_div%>'></ul>

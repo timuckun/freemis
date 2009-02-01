@@ -1,0 +1,8 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Positive Referral History for <%=h @pupil.known_as.to_s + " " + @pupil.surname.to_s %></h1>
+
+<% for show_positive in @pupil.positives %>
+<%= render :partial=>"positives/show", :locals=>{:show_positive=>show_positive} %>
+<hr>
+<% end %>

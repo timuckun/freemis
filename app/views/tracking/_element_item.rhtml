@@ -1,0 +1,7 @@
+<li id="item_<%= element_item.id%>"><span class="handle"><%=image_tag("arrow_switch.png", :title=>"Drag elements to change order") %></span>
+<input type="text" size="30" id="academic_year_tracking_elements_<%=h element_item.id %>_element"  name="academic_year[tracking_elements][<%=h element_item.id %>][element]" value="<%=h element_item.element%>"/>
+     <select id="academic_year_tracking_elements_<%=h element_item.id %>_value_list_id"  name="academic_year[tracking_elements][<%=h element_item.id %>][value_list_id]"  onchange="<%= remote_function(:update => "tracking_element_form",  :url => { :action =>'edit_tracking_elements', :controller=>'tracking', :id=>@academic_year, :parameters=>"Form.serialize(this.parent)"}) %>">
+     <option value=""> </option>
+     <%= options_from_collection_for_select(ValueList.find(:all), "id", "name", element_item.value_list_id)  %></select>
+<input type="checkbox" id="academic_year_tracking_elements_<%=h element_item.id %>_visibility" name="academic_year[tracking_elements][<%=h element_item.id %>][visibility]"  <%="checked=\"checked\"" if element_item.visibility.=="on" %>/>
+<%= link_to_remote image_tag("cancel"), :update=>"tracking_elements_form", :url=>{:action=>"retire_tracking_element", :controller=>'tracking', :id=>@academic_year.id, :element_id=>element_item.id}, :confirm=>"Are you sure you want to delete this element?" %><br/></li>

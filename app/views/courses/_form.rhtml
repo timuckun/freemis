@@ -1,0 +1,27 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<%= error_messages_for 'course' %>
+
+<!--[form:course]-->
+<p><label for="course_course_code">Course Code</label>
+<%= text_field 'course', 'course_code'  %></p>
+
+<p><label for="course_academic_year_id">Academic Year</label>
+<select id="course_academic_year_id"  name="course[academic_year_id]">
+<%= options_from_collection_for_select(AcademicYear.find(:all), "id", "name", @course.academic_year_id)  %></select></p>
+
+<p><label for="course_course_subject">Title</label>
+<%= text_field 'course', 'course_subject'  %></p>
+
+<p><label for="course_course_rubric">Rubric</label>
+<%= text_field 'course', 'course_rubric'  %></p>
+
+<p><label for="course_faculty_id">Faculty</label></p>
+<select id="course_faculty_id"  name="course[faculty_id]">
+<%= options_from_collection_for_select(Faculty.find(:all), "id", "name", @course.faculty_id)  %></select>
+
+<p><label for="course_course_level_id">Level</label></p>
+<select id="course_course_level_id"  name="course[course_level_id]">
+<%= options_from_collection_for_select(CourseLevel.find(:all), "id", "code", @course.course_level_id)  %></select>
+<!--[eoform:course]-->
+

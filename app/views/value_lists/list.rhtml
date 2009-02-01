@@ -1,0 +1,25 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Listing value_lists</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  
+<% for value_list in @value_lists %>
+  <tr>
+    <td><%=h value_list.name %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => value_list %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => value_list %></td>
+    <td><%= link_to 'Retire', {:action => 'destroy', :id => value_list}, :post=>true, :confirm => 'Are you sure?  This value list will still exist,\nbut will no longer appear on drop-downs of \npossible value lists.' %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "Previous page", { :page => @value_list_pages.current.previous } if @value_list_pages.current.previous %>
+<%= link_to "Next page", { :page => @value_list_pages.current.next } if @value_list_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New value_list', :action => 'new' %>

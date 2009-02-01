@@ -1,0 +1,20 @@
+<!-- Copyright (c) Robert Jones 2006 -->
+<%= form_tag :action => 'write', :id => @report %>
+ <%= render :partial=>"shared/pupil_select_given_set" %>
+  <%=hidden_field_tag("pupil_set",params[:pupil_set]) %>
+  <%=hidden_field_tag("type_of_report",params[:type_of_report]) %>
+  <% if @report %>
+  <%= render :partial=>"form" %>
+  <%= submit_tag("Save", :title=>"save changes") %>&nbsp;&nbsp;<%= submit_tag("Check Spelling", :title=>"Check Spelling") %>&nbsp;&nbsp;<input  type="submit" onclick="document.getElementById('newsetlink').value='<%=@newsetlink%>'; " name="Save and Go Next" value="Save and Go Next" />
+  <% end %>
+ </form>
+  <% if @report %>
+  <div id="show_comments_div">
+  <%= link_to_remote 'Show Comment Bank',
+      :url =>{:action=>'show_comment_bank', :report_id=>@report}, :complete=>"Element.show('comment_bank');" %>
+ </div>
+ <div id="comment_bank"></div>
+ <div id="history"><%= link_to_remote 'Show Report History',
+      :url =>{:action=>'faculty_report_history', :id=>@pupil, :pupil_set_id=>@pupil_set} %>
+  </div>
+<% end %>

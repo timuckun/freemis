@@ -1,0 +1,12 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>View/Print Full Reports for Whole Sets</h1>
+<span class="no_print">Please select a set - the resulting list should print out fine.</span>
+   <%= form_tag %>
+    <%= set_selector %>
+  </form>
+<% if params[:pupil_set] -%>
+<h2><%= @pupil_set.set_code %></h2>
+<%= render(:partial =>"print_one_full", :collection =>@reports ) %>
+<%= "No reports written yet for this set" if @reports==[] %>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first_school_session:
+  id: 1
+  name: current
+  school_session_start_date: 2004-06-01
+  school_session_end_date: <%= 1.day.from_now.strftime("%Y-%m-%d") %>
+another_school_session:
+  id: 2
+  name: previous
+  school_session_start_date: 2003-06-01
+  school_session_end_date: 2004-05-31

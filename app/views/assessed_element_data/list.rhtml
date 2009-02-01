@@ -1,0 +1,29 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Listing assessed_element_data</h1>
+
+<table>
+  <tr>
+<% for column in AssessedElementDatum.content_columns %>
+    <th><%= column.human_name %></th>
+<% end %>
+  </tr>
+  
+<% for assessed_element_datum in @assessed_element_data %>
+  <tr>
+  <% for column in AssessedElementDatum.content_columns %>
+    <td><%=h assessed_element_datum.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => assessed_element_datum %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => assessed_element_datum %></td>
+    <td><%= link_to 'Destroy', {:action => 'destroy', :id => assessed_element_datum}, :confirm => "Are you sure?" %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "Previous page", { :page => @assessed_element_datum_pages.current.previous } if @assessed_element_datum_pages.current.previous %>
+<%= link_to "Next page", { :page => @assessed_element_datum_pages.current.next } if @assessed_element_datum_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New assessed_element_datum', :action => 'new' %>

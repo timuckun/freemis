@@ -1,0 +1,32 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<%= error_messages_for 'report' %>
+
+
+<!--[form:report]-->
+<table><tr><td><h3><%=h @report.pupil.full_name %></h3></td></tr>
+<tr valign="top">
+<td>
+<table>
+<% for assessed in @report.assessed_element_data.sort {|x,y| x.assessed_element.element_order<=>y.assessed_element.element_order} %>
+<tr><td><label for="assesseds_<%=assessed.id %>_value"><%=h assessed.assessed_element.element %></label></td>
+<td><select id="report_assesseds_<%=h assessed.id %>_value"  name="report[assesseds][<%=h assessed.id %>][value]" class="med_select"/><option value=""> </option>
+<%= options_from_collection_for_select(assessed.assessed_element.value_list.value_list_data, "value_item", "value_item", assessed.value) rescue "NO VALUE LIST SELECTED" %></select></td></tr>
+<% end %></table>
+</td><td><table>
+<% for generic in @report.generic_report_element_data.sort {|x,y| x.generic_report_element.element<=>y.generic_report_element.element} %>
+  <td><label for="generics_<%=generic.id %>_value"><%=h generic.generic_report_element.element %></label></td><td>
+  <select id="report_generics_<%=h generic.id %>_value"  name="report[generics][<%=h generic.id %>][value]" class="med_select" />
+  <option value=""> </option>
+  <%= options_from_collection_for_select(generic.generic_report_element.value_list.value_list_data, "value_item", "value_item", generic.value) rescue "NO VALUE LIST SELECTED"   %></select></td></tr>
+<% end %>
+<% for tracking in @report.tracking_element_data %>
+  <tr><td><%= tracking.tracking_element.element %></td><td><%=tracking.value %></td></tr>
+<% end %>
+</table></td></tr>
+<tr><td colspan="2">
+<label for="report_reports_comment1">Comment</label></td></tr>
+<tr><td colspan="2"><div id="speller" ><%= text_area 'report', 'reports_comment1', {"rows"=>"10","cols"=>"80"}  %></div></td></tr></table>
+
+<!--[eoform:report]-->
+

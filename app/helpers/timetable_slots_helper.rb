@@ -1,0 +1,2 @@
+module TimetableSlotsHelper
+end

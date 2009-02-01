@@ -1,0 +1,25 @@
+<h1>Listing Timetable Periods</h1>
+
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Slot</th>
+  </tr>
+  
+<% for timetable_period in @timetable_periods %>
+  <tr>
+    <td><%=h timetable_period.timetable_day.name%></td>
+    <td><%=h timetable_period.timetable_slot.name%></td>
+    <td><%= link_to 'Show', :action => 'show', :id => timetable_period %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => timetable_period %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => timetable_period }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @timetable_period_pages.current.previous } if @timetable_period_pages.current.previous %>
+<%= link_to 'Next page', { :page => @timetable_period_pages.current.next } if @timetable_period_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New timetable_period', :action => 'new' %>

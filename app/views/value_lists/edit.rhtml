@@ -1,0 +1,11 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Editing Value List</h1>
+<%=link_to "all lists", :action=>"list" %>
+<p>
+  <b>Name:</b> <%=h @value_list.name %>
+</p>
+Value List Items:<br>
+<div id="value_list_elements">
+<%= render :partial=>"data_form", :object=>@value_list %>
+</div>

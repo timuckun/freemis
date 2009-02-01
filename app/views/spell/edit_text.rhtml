@@ -1,0 +1,10 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<p>Edit your text for misspelings!</p>
+<%= form_tag :action => 'check_spelling' -%>
+<%= text_area_tag( 'body',
+                      @body.nil? ? "" : @body,
+                      :size=>"40x15") %>
+<br /><br />
+<%= submit_tag "Check spelling" %>
+</form>

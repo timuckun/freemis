@@ -1,0 +1,40 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Interim Reports
+<% if !params[:pupil_set] -%>
+   <%= form_tag %>
+    <%= set_selector%>
+  </form>
+<% else %>
+<%=h @pupil_set.set_code %>: Page <%= params[:page] || 1%><%= " of "+ @pupil_set_pages.page_count.to_s %></h1>
+<%= form_tag({ :action => "update_interims"},  :id => "report_enter") -%>
+<table>
+  <tr>
+    <th>Pupil</th>
+    <% if @pupil_set.academic_year.interim_tracking_element %>
+      <th><%= @pupil_set.academic_year.interim_tracking_element.element %></th>
+    <% end %>
+    <% for element in @interim_report_elements -%>
+      <th><%=h element.element %></th>
+    <% end -%>
+  </tr>
+  <% for pupil in @pupil_set_page %>
+  <tr>
+    <td><%=h pupil.full_name %></td>
+    <% if @pupil_set.academic_year.interim_tracking_element %>
+      <td><%= pupil.interim_target(@pupil_set.course_id) %></td>
+    <% end %>
+    <% for element in @interim_report_elements -%>
+    <td><%= show_interim_select(element,pupil.link_id) %></td>
+    <% end -%>
+  </tr>
+  <% end -%>
+</table>
+<%= hidden_field_tag ("page",params[:page]) %>
+<%= hidden_field_tag ("pupil_set",params[:pupil_set]) %>
+<%= submit_tag 'Save and Go Previous Page', {:onClick=>"document.forms['report_enter'].elements['page'].value='#{@pupil_set_pages.current.previous.to_i}';document.forms['report_enter'].target='_self';  document.forms['report_enter'].submit();"} if @pupil_set_pages.current.previous %>
+<%= submit_tag 'Save', {:onClick=>"document.forms['report_enter'].target='_self';"} %>
+<%= submit_tag 'Save and Go Next Page', {:onClick=>"document.forms['report_enter'].elements['page'].value='#{@pupil_set_pages.current.next.to_i}';document.forms['report_enter'].target='_self'; document.forms['report_enter'].submit();"} if @pupil_set_pages.current.next %>
+<%= submit_tag 'Print', {:onClick=>"document.forms['report_enter'].target='_blank'"} %>
+</form>
+<% end %>

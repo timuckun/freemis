@@ -1,0 +1,45 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<div class="portlet">
+<% nav_array=[{:controller=>"pupils", :action=>nil},
+              {:controller=>"registration", :action=>"register"},
+              {:controller=>"pupil_sets", :action=>nil},
+              {:controller=>"guidance_reports", :action=>"edit"},
+              {:controller=>"reports", :action=>nil},
+              {:controller=>"positives", :action=>nil},
+              {:controller=>"merits", :action=>nil},
+              {:controller=>"tracking", :action=>nil},
+              {:controller=>"courses", :action=>nil},
+              {:controller=>"value_lists", :action=>nil},
+              {:controller=>"school_sessions", :action=>nil}] %>
+
+  <h4>Navigation</h4>
+ <ul>
+ <li<%=' class="chosen"' if ["timetable","timetable_periods","timetable_slots","timetable_days"].detect{|t| t==params[:controller]} %>><%= link_to image_tag( "calendar.png") + " Timetable", :controller=>"timetable" %></li>
+ <li<%=' class="chosen"' if params[:controller]=="pupils" %>><%= link_to image_tag( "user.png") + " Pupils", :controller=>"pupils" %></li>
+ <% if current_user.groups.include?(Group.find(1)) %>
+<li<%=' class="chosen"' if params[:controller]=="registration" %>><%= link_to image_tag("table.png", {:alt=>"Registration"}) + " Registration", :controller=>"registration", :action=>"register" %></li>
+<% end %>
+ <li<%=' class="chosen"' if params[:controller]=="pupil_sets" %>><%= link_to image_tag("group.png", {:alt=>"Pupil Sets"}) + " Sets", :controller=>"pupil_sets" %></li>
+ <% if current_user.groups.include?(Group.find(4))  || current_user.groups.include?(Group.find(5)) %>
+  <li<%=' class="chosen"' if params[:controller]=="guidance_reports" %>><%= link_to image_tag("house.png", {:alt=>"Guidance Reports"}) + " Guidance Reports", :controller=>"guidance_reports", :action=>"edit" %></li>
+<% end %>
+<li<%=' class="chosen"' if params[:controller]=="reports" %>><%= link_to image_tag("application_cascade.png", {:alt=>"Reports"}) + " Reports", :controller=>"reports" %></li>
+ <li<%=' class="chosen"' if params[:controller]=="positives" %>><%= link_to image_tag("emoticon_smile.png", {:alt=>"Positive Referrals"}) +  " Positive Referrals", :controller=>"positives" %></li>
+ <li<%=' class="chosen"' if params[:controller]=="merits" %>><%= link_to image_tag("comment_add.png", {:alt=>"Merits"}) +  " Merits", :controller=>"merits", :action=>"award" %></li>
+ <li<%=' class="chosen"' if params[:controller]=="tracking" %>><%= link_to image_tag("target.png") + " Tracking", :controller=>"tracking" %></li>
+ <% if current_user.groups.include?(Group.find(2)) %>
+ 	<li<%=' class="chosen"' if params[:controller]=="user" && params[:action]!="edit" %>><%= link_to image_tag("user_orange.png", {:alt=>"User Admin"}) + " User Admin", :controller=>"user", :action=>"admin_edit" %></li>
+  <li<%=' class="chosen"' if params[:controller]=="faculties" %>><%= link_to image_tag("book.png", {:alt=>"Faculties"}) +  " Faculties", :controller=>"faculties" %></li>
+<li<%=' class="chosen"' if params[:controller]=="academic_years" %>><%= link_to image_tag("book.png") +  " Academic Years", :controller=>"academic_years" %></li>
+<li<%=' class="chosen"' if params[:controller]=="courses" %>><%= link_to image_tag("book.png", {:alt=>"Courses"}) +  " Courses", :controller=>"courses" %></li>
+<li<%=' class="chosen"' if params[:controller]=="guidance_groups" %>><%= link_to image_tag("house.png", {:alt=>"Guidance Groups"}) +  " Guidance Groups", :controller=>"guidance_groups" %></li>
+  <li<%=' class="chosen"' if params[:controller]=="value_lists" %>><%= link_to image_tag("application_view_list.png", {:alt=>"Value Lists"}) +  " Value Lists", :controller=>"value_lists" %></li>
+  <li<%=' class="chosen"' if params[:controller]=="school_sessions" %>><%= link_to image_tag("calendar.png", {:alt=>"School Sessions"}) +  " School Sessions", :controller=>"school_sessions" %></li>
+<% end %>
+ <li<%=' class="chosen"' if params[:controller]=="user" && params[:action]=="edit" %>><%= link_to image_tag("user_suit.png", {:alt=>"My Details"}) + " My Details", :controller=>"account", :action =>"edit" %></li>
+
+ </ul>
+</div>
+
+

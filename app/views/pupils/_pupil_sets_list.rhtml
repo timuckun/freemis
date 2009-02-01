@@ -1,0 +1,8 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<ul>
+<% for pupil_set in @pupil.pupil_sets.select {|set| set.school_session==SchoolSession.current} %>
+  <li><%= link_to pupil_set.set_code, :controller=>"pupil_sets", :action=>"user_show", :id=>pupil_set %><li>
+<% end %>
+</ul>
+  

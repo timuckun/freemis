@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first_report:
+  id: 1
+  setlink_id: 1
+report_2:
+  id: 2
+  setlink_id: 2
+report_3:
+  id: 3
+  setlink_id: 3
+report_4:
+  id: 4
+  setlink_id: 4

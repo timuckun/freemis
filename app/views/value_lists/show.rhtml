@@ -1,0 +1,12 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+
+<p>
+  <b>Name:</b> <%=h @value_list.name %>
+</p>
+<% for value_list_datum in @value_list.value_list_data %> 
+<%= value_list_datum.value_item %></br>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @value_list %> |
+<%= link_to 'Back', :action => 'list' %>

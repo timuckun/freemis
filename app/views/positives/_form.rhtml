@@ -1,0 +1,9 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<!--[form:positive]-->
+<p><label for="positive_poz_comment">Comment:</label><br/>
+<%= text_area 'positive', 'poz_comment', "cols"=>50, "rows"=>6  %></p>
+<%= hidden_field_tag("newsetlink", params[:setlink]) %>
+<%= hidden_field_tag("pupil-set", params[:pupil_set]) %>
+<!--[eoform:positive]-->
+

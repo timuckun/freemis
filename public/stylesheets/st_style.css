@@ -1,0 +1,425 @@
+/*
+ * Stylesheet for SchoolTool
+ *
+ * Aesthetic styling
+ *
+ */
+
+/*
+ * Normalize font size across browsers
+ */
+
+body {
+    font-size: x-small; /* for IE5/Win */
+    voice-family: "\"}\"";
+    voice-family: inherit;
+    font-size: small; /* for IE6/Win */
+    background-image: url('/images/bg.png'); 
+    background-repeat: repeat;
+}
+
+html>body {
+    font-size: x-small; /* for Opera */
+}
+
+head:first-child+body {
+    font-size: small; /* for Mozilla, IE5/Mac */
+}
+
+/*
+ * END Font
+ */
+
+body {
+    font-family: Verdana, Helvetica, Arial, Sans-Serif;
+    color: #000;
+    min-width: 700px;
+}
+
+img {
+    border: none;
+}
+
+a, a:link, a:hover, a:active {
+    color: #314e6c;
+    font-weight: bold;
+}
+
+
+a:hover {
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Trebuchet MS", Sans-Serif;
+}
+
+h1 {
+    font-size: large;
+    text-align: center;
+}
+
+h2, h3, h4, h5, h6 {
+    font-size: medium;
+}
+
+pre {
+  margin: 1em;
+  padding: 1em;
+  border: 1px #000 dotted;
+}
+
+.center {
+    text-align: center;
+}
+
+.inline {
+  display: inline;
+}
+
+.popup {
+    font-size: smaller;
+
+    width:100% !important;
+}
+
+
+input[type=text],
+input[type=password],
+input[type=submit],
+select,
+textarea {
+    padding: 2px;
+    border: 1px #bab5ab solid;
+    background: #ffffff;
+    vertical-align: middle;
+}
+
+select {
+    padding: 0;
+    vertical-align: top;
+}
+
+#column-left select {
+    width: 10em;
+}
+
+option {
+    border-bottom: 1px #eae8e3 solid;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=submit]:focus,
+input[type=checkbox]:focus,
+input[type=radio]:focus,
+textarea:focus  {
+    border: 1px #565248 solid;
+}
+
+div.info {
+    margin: 0.5em;
+    font-weight: bold;
+    color: #009900;
+}
+
+
+#header {
+    background: #eae8e3;
+}
+
+#header a:hover{
+    color: #eae8e3;
+    background: #eae8e3;
+}
+
+#header .tools {
+    color: #f0f0f0;
+    background: #000099 url(/images/toolbar-background.png) top left repeat-x;
+    border-top: 2px #00c solid;
+    border-bottom: 2px #00c solid;
+    font-size: smaller;
+}
+
+#header .tools a {
+    color: #f0f0f0;
+    background: inherit;
+    text-decoration: none;
+    padding: 2px 1ex;
+    font-weight: bold;
+    margin: 0 1px;
+}
+
+#header .tools a:hover {
+    background: #0000C4 url(/images/toolbar-background-hover.png) top left repeat-x;
+    margin: 0;
+    border-left: 1px #6565E5 solid;
+    border-right: 1px #6565E5 solid;
+}
+
+/*
+* Left Column and portlets
+*/
+
+#column-left {
+    background: #EAE8E3 url(/images/sidebar-background.png) bottom right no-repeat;
+    padding-right: 3px;
+    padding-bottom: 2em;
+}
+
+#column-left .portlet {
+    margin-top: 1em;
+}
+
+#column-left .portlet h4 {
+    margin: 0;
+    padding: 0 1em;
+    border-top: 1px #abb5ba solid;
+    border-bottom: 1px #abb5ba solid;
+    background: #d6d6f6;
+    font-size: small;
+}
+
+#column-left .portlet ul {
+    margin: 0;
+    padding: 0;
+}
+
+#portlet-next-day-events.portlet ul {
+    margin: 0.5em;
+    padding: 0;
+}
+
+#column-left .portlet li {
+    list-style: none;
+    padding: 1px 0;
+    margin-top: 1px;
+    margin-bottom: 0;
+}
+
+#column-left .portlet li a {
+    display: block;
+    margin: 1px 0;
+    padding: 2px 1em;
+    color: #304D6B;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#column-left .portlet li.chosen a {
+  color: black;
+}
+
+#column-left .portlet li a:hover {
+    background: #38387F;
+    margin: 0;
+    border-top: 1px #575A32 solid;
+    border-bottom: 1px #575A32 solid;
+    color: #fff !important;
+}
+
+#column-left .portlet .controls {
+    margin: 1ex 1ex 1ex 1ex;
+    text-align: right;
+}
+
+#column-left .portlet .controls input {
+    font-size: x-small;
+}
+
+#actions li a {
+    font-size: xx-small;
+    padding: 0px 3.5em !important;
+    color: green !important;
+}
+
+#actions h4 {
+    background: #99CC99 !important;
+}
+/*
+* Center Column and Content
+*/
+
+#column-center {
+    padding: 15px 20px;
+}
+#column-center a.show_visited:visited {
+    color: #FF2233;
+}
+#content-header,
+#content-header h1 {
+    margin: 0;
+}
+
+#content-header h1 {
+}
+
+#breadcrumbs {
+    list-style: none;
+    padding: 0;
+    /* This compensates for the padding on #column-center */
+    margin: -0.5em 0 0 -1em;
+}
+
+#breadcrumbs li {
+    display: inline;
+    margin: 0;
+}
+
+#breadcrumbs li.breadcrumb:after {
+    content: "\00BB \0020";
+}
+
+#breadcrumbs li.last:after {
+    content: '';
+}
+
+.breadcrumb a {
+    font-size: smaller;
+    text-decoration: none;
+}
+
+
+#footer {
+    font-size: xx-small;
+    background: #eae8e3;
+    border-top: 1px solid #bab5ab;
+    line-height: 1em;
+}
+
+#portlet-jumpto form {
+    border-bottom: 1px #aaa dashed;
+    padding: 0.5em;
+    font-size: smaller;
+    margin: auto;
+}
+
+div.sub_box {
+border: 1px solid blue;
+background: #EAE8E3;
+padding: 0px;
+margin-bottom: 15px;
+margin-right: 15px;
+}
+div.sub_box h2{
+border-bottom: 1px solid blue;
+background: #BBB url(/images/sub_div_header_bg.png) top left repeat-x;;
+padding: 0px;
+margin: 0px;
+text-align: center;
+}
+div.sub_box form {
+padding: 4px;
+}
+/*
+ * Formatting for timetable views
+ */
+table.weekly_view  {
+    border-collapse: collapse;
+}
+
+.weekly_view  td, .weekly_view th{
+    border :solid black 1px;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+ .weekly_view th, .weekly_view tr > td:first-child{
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    background: #DBDBF1;
+ }
+ .weekly_view td.set1 {
+     background: #fED;
+ }
+  .weekly_view td.set2 {
+     background: #AEf;
+ }
+   .weekly_view td.set3 {
+     background: #fE6;
+ }
+    .weekly_view td.set4 {
+     background: #37e;
+ }   .weekly_view td.set5 {
+     background: #9e7;
+ }   .weekly_view td.set6 {
+     background: #ea9;
+ }   .weekly_view td.set7 {
+     background: #e3a;
+ }   .weekly_view td.set8 {
+     background: #fe3;
+ }
+ .weekly_view tr >td:first-child{
+ text-align: left;
+ }
+ .weekly_view td.blank {
+     background: #FFF;
+     border: 0;
+ }
+ .weekly_view td.non-contact {
+     background: #555;
+ }
+ /*
+ * Formatting for Gradebook
+ */
+ table.gradebook  {
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.gradebook  td, .gradebook th{
+    border :solid black 1px;
+    padding: 2px 4px;
+    text-align: center;
+}
+#gradebook_form  td{
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+.gradebook td.input_cell{
+    padding: 0px;
+    margin: 0px;
+    background: #FFFF99;
+}
+.gradebook th {
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    background: #DBDBF1;
+ }
+.gradebook td.pupil_details {
+    font-weight: bold;
+    background: #DBDBF1;
+    text-align: left;
+ }
+ .gradebook td.sorted {
+    background: #EEE;
+ }
+input.text_input {
+  margin: 0px;
+  padding: 0px 4px;
+  border: 1px #FFFF99 solid !important;
+  background: #FFFF99;
+  width: auto ! important;
+}
+
+.input_cell input:focus {
+  margin: 0px;
+  padding: 0px 4px;
+  background: #FFFF00;
+  display: inline;
+  border-style: inset;
+  border: 1px solid #FFCC00 ! important; 
+}
+tr.highlighted{
+  background-color: #FFFF99 ;
+}
+tr.highlighted td.pupil_details{
+  background-color: #CBCBDF;
+}
+tr.highlighted td.sorted{
+  background-color: #E9E98C;
+}
+tr.not {
+  background-color: #FFFFFF;
+}

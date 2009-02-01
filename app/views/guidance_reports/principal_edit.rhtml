@@ -1,0 +1,34 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Guidance Reports</h1>
+  <% if !params[:pupil_id] || params[:pupil_id]==""%>
+  <p>Please select a guidance group and pupil</p>
+  <%=form_tag :action=>"edit", :id=>""%>
+  <select id="guidance_group_id" name="guidance_group_id" onchange="submit();">
+   <%= options_from_collection_for_select(@groups, "id", "name", params[:guidance_group_id].to_i) %>
+  </select>
+  <% if params[:guidance_group_id] %>
+    <select id="pupil_id" name="pupil_id" onchange="submit();" >
+    <option value="">--select pupil--</option>
+    <%=options_from_collection_for_select(@guidance_group.pupils,"id", "full_name", params[:pupil_id]) %>
+    </select>
+   <% end %>
+  <%= submit_tag "select" %> 
+  </form>
+  <% end %>
+ <% if @guidance_report %>
+<h1><%= @guidance_report.pupil.full_name %></h1>
+<%=form_tag :action=>"edit", :id=>@guidance_report %>
+ <%= error_messages_for 'guidance_report' %>
+
+<!--[form:guidance_report]-->
+<p><label for="guidance_report_reports_comment1">Guidance Teacher Comment</label><br/>
+<%= text_area ('guidance_report', 'reports_comment1', "cols"=>50, "rows"=>6)%></p>
+<p><label for="guidance_report_reports_comment2">Head Teacher Comment</label><br/>
+<%= text_area ('guidance_report', 'reports_comment2', "cols"=>50, "rows"=>6)%></p>
+<!--[eoform:guidance_report]-->
+  <%= hidden_field_tag "guidance_group_id", params[:guidance_group_id] %>
+  <%= submit_tag 'Edit' %>
+<%= end_form_tag  if @guidance_report %>
+<%= render "pupils/reports" %>
+<% end %>

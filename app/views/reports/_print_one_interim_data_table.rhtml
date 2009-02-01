@@ -1,0 +1,29 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<table cellspacing=0 class="interim_data"><tr class="header_row"><th>Subject</th><th>Level</th>
+<% if print_one_interim_data_table["tracking_header"] %>
+  <th><%=h print_one_interim_data_table["tracking_header"] %></th>
+<% end %>
+<% for header in print_one_interim_data_table["headers"] %>
+  <th><%= header.element %></th>
+<% end %>
+</tr>
+<% counter=0 %>
+<% for row in print_one_interim_data_table["body_rows"] %>
+<% counter+=1 %>
+<tr <%= 'class="odd"' if counter.divmod(2).last==1%>>
+    <td class="left"><%= row["subject"] %></td>
+    <td class="data"><%= row["level"] %></td>
+    <% if print_one_interim_data_table["tracking_header"] %>
+      <td class="data"><%= row["target"] || "N/A" %></td>
+    <% end %>
+    <% for datum in row["data"] %>
+      <td class="data"><%if datum && datum.element_value!="" %>
+	<%= datum.element_value %>
+      <% else %>
+      <%= "N/A" %>
+      <% end %></td>
+    <% end %>
+  </tr>
+<% end %>
+  </table>

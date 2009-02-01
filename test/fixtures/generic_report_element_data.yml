@@ -1,0 +1,46 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+datum_1:
+  id: 1
+  report_id: 2
+  generic_report_element_id: 1
+  value: A
+datum_2:
+  id: 2
+  report_id: 2
+  generic_report_element_id: 2
+  value: A
+datum_3:
+  id: 3
+  report_id: 2
+  generic_report_element_id: 3
+  value: B
+datum_4:
+  id: 4
+  report_id: 3
+  generic_report_element_id: 1
+  value: A
+datum_5:
+  id: 5
+  report_id: 3
+  generic_report_element_id: 2
+  value: A
+datum_6:
+  id: 6
+  report_id: 3
+  generic_report_element_id: 3
+  value: B
+datum_7:
+  id: 7
+  report_id: 4
+  generic_report_element_id: 1
+  value: A
+datum_8:
+  id: 8
+  report_id: 4
+  generic_report_element_id: 2
+  value: A
+datum_9:
+  id: 9
+  report_id: 4
+  generic_report_element_id: 3
+  value: A 

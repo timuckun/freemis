@@ -1,0 +1,15 @@
+<%= error_messages_for 'timetable_slot' %>
+
+<!--[form:timetable_slot]-->
+<p><label for="timetable_slot_name">Name</label><br/>
+<%= text_field 'timetable_slot', 'name'  %>
+</p>
+<p><label for="timetable_slot_start_time">Start time</label><br/>
+<%= select_time @timetable_slot.start_time, :prefix=>"timetable_slot[start_time]" %>
+</p>
+
+<p><label for="timetable_slot_end_time">End time</label><br/>
+<%= select_time @timetable_slot.end_time, :prefix=>"timetable_slot[end_time]" %>
+</p>
+<!--[eoform:timetable_slot]-->
+

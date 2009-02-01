@@ -1,0 +1,21 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<%= error_messages_for 'assessed_element' %>
+
+<!--[form:assessed_element]-->
+<p><label for="assessed_element_element">Element</label><br/>
+<%= text_field 'assessed_element', 'element'  %></p>
+
+<p><label for="assessed_element_values_name">Values name</label><br/>
+<%= text_field 'assessed_element', 'values_name'  %></p>
+
+<p><label for="assessed_element_element_order">Element order</label><br/>
+<%= text_field 'assessed_element', 'element_order'  %></p>
+
+<p><label for="assessed_element_start_date">Start date</label><br/>
+<%= date_select 'assessed_element', 'start_date'  %></p>
+
+<p><label for="assessed_element_end_date">End date</label><br/>
+<%= date_select 'assessed_element', 'end_date'  %></p>
+<!--[eoform:assessed_element]-->
+

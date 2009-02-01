@@ -1,0 +1,42 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Setting Targets
+<% if @has_target_elements -%>
+  : Page <%= params[:page] || 1%><%= " of "+ @pupil_set_pages.page_count.to_s %>
+<% end -%>
+</h1>
+<% if !@has_target_elements -%>
+   <%= form_tag %>
+    <%= set_selector %>
+  </form>
+<% else %>
+<h2><%=h @pupil_set.set_code+" "+@pupil_set.course.course_subject+" "+@pupil_set.course.course_level.name %></h2>
+<%= form_tag({ :action => "update_targets"},  :id => "target_enter") -%>
+<table>
+  <tr>
+    <th>Pupil</th>
+    <% for element in @tracking_elements -%>
+      <th><%=h element.element %></th>
+    <% end -%>
+  </tr>
+  <% for pupil in @pupil_set_page %>
+  <tr>
+    <td><%=h pupil.full_name %></td>
+    <% for element in @tracking_elements -%>
+    <td><%= show_tracking_select(element,pupil.link_id,pupil.id) %></td>
+    <% end -%>
+  </tr>
+  <% end -%>
+  <tr>
+  <td colspan="<%= @tracking_elements.length+1 %>" align="center">
+  <%= image_submit_tag("resultset_previous", :title=>'Save and Go Previous Page', :onClick=>"document.forms['target_enter'].elements['page'].value='#{@pupil_set_pages.current.previous.to_i}'; document.forms['target_enter'].submit();") if @pupil_set_pages.current.previous %>
+<%= image_submit_tag("accept.png", :title=> 'Save your changes') %>
+<%= image_submit_tag("resultset_next.png", :title=> 'Save and Go Next Page',  :onClick=>"document.forms['target_enter'].elements['page'].value='#{@pupil_set_pages.current.next.to_i}'; document.forms['target_enter'].submit();") if @pupil_set_pages.current.next %>
+  </td>
+  </tr>
+</table>
+<%= hidden_field_tag("page",params[:page]) %>
+<%= hidden_field_tag("pupil_set",params[:pupil_set]) %>
+
+</form>
+<% end %>

@@ -1,0 +1,23 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h2>Submit Unexplained Absences or Presences <%=h "for " + @pupil_set.set_code.to_s if params[:pupil_set] %></h2>
+<% if !params[:pupil_set] %>
+   <%= form_tag %>
+    <%= set_selector %>
+  </form>
+<% else %>
+  <%= form_tag %>
+  <table>
+  <tr><td colspan="2"><%= Time.now.utc.strftime("%a %d %B %Y") %></td></tr>
+  <tr><td>Period: </td><td><select name="period">
+   <%=options_for_select(["1","2","3","4","5","6","7"],params[:period]) %>
+  </select></td></tr>
+ <tr><td>Pupil: </td><td><%= pupil_selector(@pupil_set.id,"",false,false) %></td></tr>
+ <tr><td>was: </td><td><select name="reason">
+   <%=options_for_select(["absent","present"],params[:reason]) %>
+  </select></td></tr>
+  <tr><td>Notes: </td><td><%=text_field(:note, :extra, :size => 40)%></td></tr></table>
+  <%= hidden_field_tag("pupil_set", params[:pupil_set]) %>
+  <%= submit_tag 'Submit' %>
+</form>
+<% end %>

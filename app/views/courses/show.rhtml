@@ -1,0 +1,9 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<% for column in Course.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @course.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Back', :action => 'list' %>

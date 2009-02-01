@@ -1,0 +1,16 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<div id="<%=print_one_merit.id.to_s %>" class="A5_border">
+<div style="position: relative; top: 1cm; "><div class="merit_org_name"> <%=Organization.find(1).name %> </div></div>
+<div style="position: relative; top: 2.5cm; "><div class="merit_name"><%= print_one_merit.name %></div></div>
+<div style="position: relative; top: 3cm; "><div class="merit_guidance"><%= print_one_merit.guidance_group.code %></div></div>
+<div style="position: relative; top: 4cm; "><div class="merit_cert">Certificate of Merit</div></div>
+<div style="position: relative; top: 5cm; "><div class="merit_type"><%= print_one_merit.merit_award %></div></div>
+<div style="position: relative; top: 6.1cm; "><div class="merit_date">December 2008</div></div>
+<div style="position: relative; top: 3.8cm; left: 15cm;"> <%=image_tag("schoollogo.gif", "height"=>"25%") %> </div>
+<div style="position: relative; top: 2.6cm; left: 1cm;">
+<!--<%=image_tag("headsig.gif", "height"=>"5%") %>--><div class="merit_headsig">Head Teacher</div></div>
+</div>
+<% if print_one_merit_counter.modulo(2)==1%>
+<div style="page-break-after: always">&nbsp;</div>
+<% end %>

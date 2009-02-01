@@ -1,0 +1,27 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<% if flash[:local_notice] %><div class="notice"><%=h flash[:local_notice] %></div><% end %>
+  <!--[form:course_assessed_elements]-->
+  <%= form_remote_tag :update=> "tracking_elements_form", :url=>{ :action =>'edit_tracking_elements', :controller=>'tracking', :id=>@academic_year}, :complete => visual_effect(:highlight, 'track_list') %>
+  <ul class="sortable"  id="track_list">
+  <% for element in @academic_year.tracking_elements  %>
+    <li id="item_<%= element.id%>"><span class="handle"><%=image_tag("arrow_switch.png", :title=>"Drag elements to change order") %></span>
+<input type="text" size="30" id="academic_year_tracking_elements_<%=h element.id %>_element"  name="academic_year[tracking_elements][<%=h element.id %>][element]" value="<%=h element.element%>"/>
+     <select id="academic_year_tracking_elements_<%=h element.id %>_value_list_id"  name="academic_year[tracking_elements][<%=h element.id %>][value_list_id]"  onchange="<%= remote_function(:update => "tracking_element_form",  :url => { :action =>'edit_tracking_elements', :controller=>'tracking', :id=>@academic_year, :parameters=>"Form.serialize(this.parent)"}) %>">
+     <option value=""> </option>
+     <%= options_from_collection_for_select(ValueList.find(:all), "id", "name", element.value_list_id)  %></select>
+<input type="checkbox" id="academic_year_tracking_elements_<%=h element.id %>_visibility" name="academic_year[tracking_elements][<%=h element.id %>][visibility]"  <%="checked=\"checked\"" if element.visibility.=="on" %>/>
+<%= link_to_remote image_tag("cancel.png"), :update=>"tracking_elements_form", :url=>{:action=>"retire_tracking_element", :controller=>'tracking', :id=>@academic_year.id, :element_id=>element.id}, :confirm=>"Are you sure you want to delete this element?" %><br/></li>
+   <% end %>
+ </ul><br/>
+ <%= submit_tag "Edit" if @academic_year.tracking_elements.length>0%>
+ </form>
+<%= form_remote_tag :update=> "track_list", :position=>"bottom", :url=>{ :action =>'new_tracking_element', :controller=>'tracking',  :id=>@academic_year} %>
+<%= submit_tag "New element" %>
+</form>
+<!--[eoform:course_assessed_elements]-->
+
+<%= sortable_element 'track_list', 
+      :complete => visual_effect(:highlight, 'track_list'), 
+      :url => { :action => "reorder_tracking_elements", :controller=>'tracking', :id=>@academic_year},
+      :handle=>'handle' %>

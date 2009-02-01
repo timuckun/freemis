@@ -1,0 +1,10 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<% for column in AcademicYear.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%= @academic_year.send(column.name) &&  @academic_year.send(column.name).gsub(/<\s*?script[^>]*?>.*?<\s*?\/script\s*?>/m, '') %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @academic_year %> |
+<%= link_to 'Back', :action => 'list' %>

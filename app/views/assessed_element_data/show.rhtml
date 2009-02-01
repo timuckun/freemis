@@ -1,0 +1,10 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<% for column in AssessedElementDatum.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @assessed_element_datum.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @assessed_element_datum %> |
+<%= link_to 'Back', :action => 'list' %>

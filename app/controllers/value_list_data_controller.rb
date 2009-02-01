@@ -1,0 +1,44 @@
+##################################################################################
+##                                                                              ##
+##                           Copyright (c) Robert Jones 2006                    ##
+##                                                                              ##
+##  This file is part of FreeMIS.                                               ##
+##                                                                              ##
+##  FreeMIS is free software; you can redistribute it and/or modify             ##
+##  it under the terms of the GNU General Public License as published by        ##
+##  the Free Software Foundation; either version 2 of the License, or           ##
+##  (at your option) any later version.                                         ##
+##                                                                              ##
+##  FreeMIS is distributed in the hope that it will be useful,                  ##
+##  but WITHOUT ANY WARRANTY; without even the implied warranty of              ##
+##  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               ##
+##  GNU General Public License for more details.                                ##
+##                                                                              ##
+##  You should have received a copy of the GNU General Public License           ##
+##  along with FreeMIS; if not, write to the Free Software                      ##
+##  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA  ##
+##                                                                              ##
+##################################################################################
+class ValueListDataController < ApplicationController
+  before_filter :login_required
+  def index
+  redirect_to :controller=>"top", :action=>"welcome"
+  end
+
+  def create
+    @value_list=ValueList.find(params[:value_list_id])
+    @value_list_datum = ValueListDatum.new(:value_item=>params["value_list_datum"]["value_item"], :value_list_id=>params["value_list_id"], :item_order=>@value_list.value_list_data.length.succ)
+    if @value_list_datum.save
+      flash['local_notice'] = 'Item was successfully added to this value list.'
+    end
+    @value_list.reload
+    render :partial=>"value_lists/data_form", :object=>@value_list
+  end
+
+  def destroy
+    @value_list=ValueList.find(params[:value_list_id])
+    ValueListDatum.find(params[:id]).destroy
+    @value_list.reload
+    render :partial=>"value_lists/data_form", :object=>@value_list
+  end
+end

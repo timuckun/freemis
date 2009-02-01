@@ -1,0 +1,8 @@
+<% "Copyright (c) Robert Jones 2006" %>
+
+<h1>Editing positive</h1>
+
+<%= form_tag :action => 'update', :id => @positive %>
+  <%= render :partial=>'form' %>
+  <%= submit_tag 'Edit' %>
+</form>

@@ -1,0 +1,27 @@
+<table class="weekly_view">
+<tr><th>Day</th>
+<% @slots.each do |slot| %>
+<th><%=h slot.name %></th>
+<% end -%>
+<% @days.each do |day| -%>
+<tr>
+<td><%=h day.name %></td>
+<% @slots.each do |slot| -%>
+
+<% if !@view_array[day.id][slot.id] %>
+      <td class="blank"></td>
+<% else -%>
+      <td>
+      <% if @view_array[day.id][slot.id]==[] -%>
+        <input type="checkbox" name="tt_array[<%=day.id%>][<%=slot.id%>]"/>
+      <% else -%>
+        <% @pupil_set.users.each do |user| -%>
+         <%= user.fullname %><input type="checkbox" name="lessons[<%=@view_array[day.id][slot.id].id%>][<%= user.id %>]" <%= "checked=\"checked\"" if @view_array[day.id][slot.id].teachers.include?(user) %>/><br/>
+         <% end %>
+      <% end %>
+      </td>
+<% end -%>
+<% end -%>
+</tr>
+<% end -%>
+</table>

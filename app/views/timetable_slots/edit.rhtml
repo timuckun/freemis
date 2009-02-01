@@ -1,0 +1,9 @@
+<h1>Editing Timetable Slot</h1>
+
+<%= form_tag :action => 'update', :id => @timetable_slot %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+</form>
+
+<%= link_to 'Show', :action => 'show', :id => @timetable_slot %> |
+<%= link_to 'Back', :action => 'list' %>

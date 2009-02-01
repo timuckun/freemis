@@ -1,0 +1,13 @@
+<h1>Editing faculty</h1>
+
+<% form_for(@faculty) do |f| %>
+  <%= f.error_messages %>
+  <p>Name: <%= f.text_field :name, :size => 30 %></p>
+  <p>Code: <%= f.text_field :code, :size => 10 %></p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @faculty %> |
+<%= link_to 'Back', faculties_path %>

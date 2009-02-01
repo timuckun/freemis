@@ -1,0 +1,24 @@
+link1:
+  link_id: 1
+  pupil_id: 100003
+  pupil_set_id: 1
+  setlink_end_date: NULL
+  setlink_start_date: 1
+link2:
+  link_id: 2
+  pupil_id: 1
+  pupil_set_id: 1
+  setlink_end_date: NULL
+  setlink_start_date: 1
+link3:
+  link_id: 3
+  pupil_id: 1
+  pupil_set_id: 2
+  setlink_end_date: NULL
+  setlink_start_date: 1
+link4:
+  link_id: 4
+  pupil_id: 1
+  pupil_set_id: 3
+  setlink_end_date: NULL
+  setlink_start_date: 1
