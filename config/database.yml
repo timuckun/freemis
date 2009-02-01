@@ -17,11 +17,10 @@
 development:
   adapter: mysql
   encoding: utf8
-  database: mysqltest_development
-  pool: 5
+  database: freemis_development
   username: root
   password:
-  socket: /var/run/mysqld/mysqld.sock
+  #socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -29,17 +28,15 @@ development:
 test:
   adapter: mysql
   encoding: utf8
-  database: mysqltest_test
-  pool: 5
+  database: freemis_test
   username: root
   password:
-  socket: /var/run/mysqld/mysqld.sock
+  #socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql
   encoding: utf8
-  database: mysqltest_production
-  pool: 5
+  database: freemis_production
   username: root
   password: 
-  socket: /var/run/mysqld/mysqld.sock
+  #socket: /var/run/mysqld/mysqld.sock
